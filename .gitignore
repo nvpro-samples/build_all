@@ -32,16 +32,19 @@ local.properties
 #################
 ## cmake
 #################
+
 *.rule
-*.check_cache
-*.cmake
+*.cache
 *.bin
-*.stamp
+*.cmake
 *.depend
 *.list
-TargetDirectories.txt
+*.check_cache
+*.log
+*.stamp
 CMakeCache.txt
-
+TargetDirectories.txt
+install_manifest.txt
 
 #################
 ## Visual Studio
