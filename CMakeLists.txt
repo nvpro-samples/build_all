@@ -20,7 +20,7 @@ FOREACH( sample ${samples} )
             # build the option to include the project or not
             set( "BUILD_${SAMPLE_NAME}" TRUE CACHE BOOL "Include the ${SAMPLE_NAME} sample" )
             # add the project
-            if( "BUILD_${SAMPLE_NAME}")
+            if( BUILD_${SAMPLE_NAME})
               add_subdirectory( ../${SAMPLE_NAME} ./${SAMPLE_NAME})
             endif()
           endif()
