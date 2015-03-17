@@ -16,7 +16,7 @@ FOREACH( sample ${samples} )
       if( EXISTS ${sample}/CMakeLists.txt )
         # extract the name from the path
         string( REGEX REPLACE "^.*/([^/]*)$" "\\1" SAMPLE_NAME ${sample} )
-          if( (NOT (${SAMPLE_NAME} MATCHES "^__")) AND (NOT(${SAMPLE_NAME} STREQUAL "build_all")) AND (NOT(${SAMPLE_NAME} STREQUAL "shared_sources")))
+          if( (NOT (${SAMPLE_NAME} MATCHES "^__")) AND (NOT(${SAMPLE_NAME} STREQUAL "build_all")) AND (NOT(${SAMPLE_NAME} STREQUAL "shared_sources")) AND (NOT(${SAMPLE_NAME} STREQUAL "downloaded_resources")))
             # build the option to include the project or not
             set( "BUILD_${SAMPLE_NAME}" TRUE CACHE BOOL "Include the ${SAMPLE_NAME} sample" )
             # add the project
