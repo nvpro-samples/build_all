@@ -45,6 +45,8 @@ local.properties
 CMakeCache.txt
 TargetDirectories.txt
 install_manifest.txt
+cmake_build
+build
 
 #################
 ## Visual Studio
