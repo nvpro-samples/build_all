@@ -53,6 +53,18 @@ With the addition of indirect rendering (```ARB_draw_indirect``` and ```ARB_mult
 
 In this sample we use ```ARB_draw_indirect``` and ```ARB_shader_atomic_counters``` to build three distinct render lists for drawing particles as spheres, each using a different shader and representing a different level of detail (LOD): Draw as point; Draw as instanced low resolution mesh; Draw as instanced adaptive tessellated mesh
 
+# gl\_cuda\_interop\_pingpong_st
+
+![sample screenshot](https://github.com/nvpro-samples/gl_cuda_interop_pingpong_st/blob/master/doc/sample.png)
+
+[github repository](https://github.com/nvpro-samples/gl_cuda_interop_pingpong_st)
+
+This is a small sample that demonstrates the most efficient way to use the *CUDA-OpenGL* *interop* API in a single-threaded manner.
+
+This example computes with *CUDA* a temperature scalar field that gets updated every frame. The visual result is a a 256 x 256 x 256 uniform grid. It is rendered in *OpenGL* with a basic ray-marching fragment shader.
+
+The *CUDA* compute part is a simple heat propogator. Since at every time step our result depends on the result of the previous frame, we **pingpong** the 3D texture resource handles back and forth every frame.
+
 # gl occlusion culling
 
 ![raster](https://github.com/nvpro-samples/gl_occlusion_culling/blob/master/doc/raster.png)
