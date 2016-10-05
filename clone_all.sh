@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# script to clone all existing samples
 folder() {
     if [ ! -d "../$1" ]
     then
