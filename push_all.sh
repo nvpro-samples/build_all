@@ -5,6 +5,7 @@ pushd ..
 for dir in *; do
    for file in "$dir"; do
      pushd $file
+     echo git push for $file
      git push
      popd
    done
