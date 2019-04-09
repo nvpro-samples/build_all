@@ -19,14 +19,16 @@ CALL :folder gl_vk_supersampled
 CALL :folder gl_vk_bk3dthreaded
 CALL :folder gl_vk_meshlet_cadscene
 CALL :folder gl_vk_threaded_cadscene
+CALL :folder gl_optix_composite
+CALL :folder optix_prime_baking
 
 :: force execution to quit at the end of the "main" logic
 EXIT /B %ERRORLEVEL%
 
 :: a function to write to a log file and write to stdout
 :folder
-IF EXIST %* GOTO NOWINDIR
-	git clone https://github.com/nvpro-samples/%*.git --recursive
+IF EXIST %* GOTO NOWINDIR 
+	git clone git@github.com:nvpro-samples/%*.git --recursive
 	GOTO DONE
 :NOWINDIR
 	echo %* already there... pulling

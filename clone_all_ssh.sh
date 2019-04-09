@@ -4,7 +4,7 @@ folder() {
     if [ ! -d "../$1" ]
     then
         pushd ..
-	git clone https://github.com/nvpro-samples/$1.git --recursive
+	      git clone git@github.com:nvpro-samples/$1.git --recursive
         popd
     else
         echo "../$1 already there... pulling"
