@@ -4,7 +4,7 @@ folder() {
     if [ ! -d "../$1" ]
     then
         pushd ..
-	git clone https://github.com/nvpro-samples/$1.git --recursive
+	    git clone https://github.com/nvpro-samples/$1.git --recursive
         popd
     else
         echo "../$1 already there... pulling"
@@ -16,21 +16,22 @@ folder() {
 }
 
 folder build_all
-folder shared_sources
-folder shared_external
 folder gl_cadscene_rendertechniques
-folder gl_cuda_interop_pingpong_st
 folder gl_cl_interop_pingpong_st
 folder gl_commandlist_basic
+folder gl_cuda_interop_pingpong_st
 folder gl_dynamic_lod
 folder gl_multicast
-folder gl_path_rendering_CMYK
 folder gl_occlusion_culling
+folder gl_path_rendering_CMYK
 folder gl_ssao
-folder gl_vk_chopper
-folder gl_vk_supersampled
 folder gl_vk_bk3dthreaded
+folder gl_vk_chopper
 folder gl_vk_meshlet_cadscene
+folder gl_vk_supersampled
 folder gl_vk_threaded_cadscene
+folder shared_sources
+folder shared_external
+folder vk_async_resources
 exit 0
 

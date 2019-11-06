@@ -2,8 +2,11 @@
 pushd ..
 for /f "delims=" %%D in ('dir /a:d /b') do (
 	pushd %%D
-	echo git pull
+	if exist .git (
+	echo "--------------------------------------------"
+	echo "git pull # %%D"
 	git pull
+	)
 	popd
 	)
 popd
