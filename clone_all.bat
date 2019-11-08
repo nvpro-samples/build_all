@@ -27,9 +27,11 @@ EXIT /B %ERRORLEVEL%
 :: a function to write to a log file and write to stdout
 :folder
 IF EXIST %* GOTO NOWINDIR
+	echo "--------------------------------------------"
 	git clone https://github.com/nvpro-samples/%*.git --recursive
 	GOTO DONE
 :NOWINDIR
+	echo "--------------------------------------------"
 	echo %* already there... pulling
 	pushd %*
 	git pull
