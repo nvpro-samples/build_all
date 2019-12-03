@@ -16,6 +16,8 @@ folder() {
 }
 
 folder build_all
+folder shared_sources
+folder shared_external
 folder gl_cadscene_rendertechniques
 folder gl_cl_interop_pingpong_st
 folder gl_commandlist_basic
@@ -30,8 +32,11 @@ folder gl_vk_chopper
 folder gl_vk_meshlet_cadscene
 folder gl_vk_supersampled
 folder gl_vk_threaded_cadscene
-folder shared_sources
-folder shared_external
+folder gl_vk_raytrace_interop
+folder gl_vk_simple_interop
+folder vk_raytrace
+folder vk_denoise
 folder vk_async_resources
+folder vk_shaded_gltfscene
 exit 0
 

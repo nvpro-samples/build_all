@@ -19,8 +19,12 @@ CALL :folder gl_vk_supersampled
 CALL :folder gl_vk_bk3dthreaded
 CALL :folder gl_vk_meshlet_cadscene
 CALL :folder gl_vk_threaded_cadscene
-CALL :folder gl_optix_composite
-CALL :folder optix_prime_baking
+CALL :folder gl_vk_raytrace_interop
+CALL :folder gl_vk_simple_interop
+CALL :folder vk_raytrace
+CALL :folder vk_denoise
+CALL :folder vk_async_resources
+CALL :folder vk_shaded_gltfscene
 
 :: force execution to quit at the end of the "main" logic
 EXIT /B %ERRORLEVEL%

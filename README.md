@@ -11,7 +11,7 @@ The `build_all` folder is an optional folder that allows you to synchronize and 
 
 Running `clone_all` batch/script will create following directory structure
 
-```
+```bash
 build_all
 shared_sources
 shared_external
@@ -27,7 +27,66 @@ Building as 64-bit is required and currently we only support the Windows platfor
 * [shared_sources](https://github.com/nvpro-samples/shared_sources): The primary framework that all samples depend on. Contains window management, ui, and various api helpers.
 * [shared_external](https://github.com/nvpro-samples/shared_external): Third party libraries that are provided pre-compiled, mostly for Windows x64 / MSVC.
 
-# OpenGL/Vulkan Samples
+# Vulkan Samples
+
+These samples are "pure" Vulkan samples and use its WSI system to create the window swapchain.
+
+## [vk_async_resources](https://github.com/nvpro-samples/vk_async_resources)
+
+![screenshot-vk_async_resources](doc/vk_async_resources.png)
+
+In Vulkan lifetime management, such as deleting resources is a bit more complex than in OpenGL.
+The basic sample describes a strategy that delays deletion of Vulkan resources for a few frames.
+Furthermore Vulkan provides multiple ways to upload data to the device, three different approaches
+are described.
+
+## [vk_shaded_gltfscene](https://github.com/nvpro-samples/vk_shaded_gltfscene)
+
+![screenshot-vk_shaded_gltfscene](doc/vk_shaded_gltfscene.png)
+
+Load a [glTF](https://www.khronos.org/gltf/) scene with materials and textures. Display a HDR image in the background and use it for lighting the scene. It renders in multiple passes, background, scene, then tonemap the result and add UI at the end. Shows how to deal with many objects, many materials and textures. This example will push the material parameters through `push_constant` and uses different descriptor sets to enable the textures to use. It also shows how to read the depth buffer to un-project the mouse coordinate to 3D position to set the camera interest.
+
+* Loads `.gltf 2` models
+
+**Tags**: GLTF, PBR material, HDR, tonemapper, textures, mipmapping, debugging shader, depth buffer reading, unproject, importance sampling, cubemap
+
+## [vk_raytrace](https://github.com/nvpro-samples/vk_raytrace)
+
+![screenshot-vk_raytrace](doc/vk_raytrace.png)
+
+Reads a [glTF](https://www.khronos.org/gltf/) scenes and renders the scene using NVIDIA ray tracing. It uses techniques like image base lighting and importance sampling, reflections, transparency and indirect illumination. The camera simulates a pin-hole whitted camera and the image is toned mapped using various tone mappers.
+
+The example shows as well how to implement a picking ray, which is using the same acceleration structure for drawing, but is using the hit data to return the information under the mouse cursor. This information can be use for setting the camera interest position, or to debug any shading data.
+
+* Loads `.gltf 2` models
+* VK_NV_ray_tracing
+* VK_EXT_descriptor_indexing
+
+**Tags**: raytracing, GLTF, HDR, tonemapper, picking, BLAS, TLAS, PBR material
+
+## [vk_denoise](https://github.com/nvpro-samples/vk_denoise)
+
+![screenshot-vk_denoise](doc/vk_denoise.png)
+
+This example is an extension of the vk_raytrace example. After a few iteration, the image will be denoised using the [Optix7 denoiser](https://developer.nvidia.com/optix-denoiser). To achieve this, an interop between Cuda and Vulkan is set. Vulkan images are converted to CUDA buffers and converted back after been denoised. This pass is inserted between other rendering passes, as it is done in vk_raytrace.
+
+* Loads `.gltf 2` models
+* VK_NV_ray_tracing
+* VK_EXT_descriptor_indexing
+* VK_KHR_external_memory
+* VK_KHR_external_memory_capabilities
+* VK_KHR_external_memory_win32
+* VK_KHR_external_semaphore
+* VK_KHR_external_semaphore_capabilities
+* VK_KHR_external_semaphore_win32
+* VK_KHR_external_fence
+* VK_KHR_external_fence_capabilities
+* VK_KHR_external_fence_win32
+
+**Tags**: raytracing, path-tracing, GLTF, HDR, tonemapper, picking, BLAS, TLAS, PBR material, denoising, Cuda, interop, OptiX
+
+
+# OpenGL / Vulkan Samples
 
 These samples use the `gl_vk_` prefix and showcase Vulkan and OpenGL techniques within
 the same application (`gl_vk_sample_name.exe`) or just Vulkan alone (`vk_sample_name.exe`). If available, using the `BUILD_gl_vk_sample_name_VULKAN_ONLY` option, you can omit building the combined executable file. The `VULKAN_ONLY` mode uses Vulkan's WSI system to create the swapchain, the combined executable uses `GL_NV_draw_vulkan_image`.
@@ -37,7 +96,7 @@ the same application (`gl_vk_sample_name.exe`) or just Vulkan alone (`vk_sample_
 ![screenshot-gl_vk_threaded_cadscene](doc/gl_vk_threaded_cadscene.png)
 
 OpenGL and Vulkan comparison on rendering a CAD scene using various techniques. Stresses
-CPU bottlenecks due to the scene having lots of tiny drawcalls. Also touches upon different ways how to provide per-draw data in Vulkan, as well as how to create drawcalls on multiple thrads in both OpenGL and Vulkan.
+CPU bottlenecks due to the scene having lots of tiny drawcalls. Also touches upon different ways how to provide per-draw data in Vulkan, as well as how to create drawcalls on multiple threads in both OpenGL and Vulkan.
 
 * Loads `.csf` and `.gltf 2` models
 * GL_NV_draw_vulkan_image (not used in `VULKAN_ONLY`)
@@ -80,6 +139,49 @@ Vulkan sample rendering 3D with worker-threads
 Vulkan sample showing a high quality super-sampled rendering
 
 * GL_NV_draw_vulkan_image
+
+
+## [gl_vk_simple_interop](https://github.com/nvpro-samples/gl_vk_simple_interop)
+
+![screenshot-gl_vk_simple_interop](doc/gl_vk_simple_interop.png)
+
+Rendering an animated image using a Vulkan compute shader and displaying this image
+using OpenGL on a animated triangle. The image is allocated with Vulkan and shared
+using Interop.
+
+* GL_EXT_memory_object
+* GL_EXT_semaphore
+* VK_KHR_external_memory
+* VK_KHR_external_memory_capabilities
+* VK_KHR_external_memory_win32
+* VK_KHR_external_semaphore
+* VK_KHR_external_semaphore_capabilities
+* VK_KHR_external_semaphore_win32
+* VK_KHR_external_fence
+* VK_KHR_external_fence_capabilities
+* VK_KHR_external_fence_win32
+
+## [gl_vk_raytrace_interop](https://github.com/nvpro-samples/gl_vk_raytrace_interop)
+
+![screenshot-gl_vk_raytrace_interop](doc/gl_vk_raytrace_interop.png)
+
+This example is adding ray traced ambient occlusion in an OpenGL scene.
+All buffers are shared between OpenGL and Vulkan to create the acceleration
+structure needed to ray trace. Rays are send from the G-Buffer position rendered
+by the OpenGL rasterizer.
+
+* GL_EXT_memory_object
+* GL_EXT_semaphore
+* VK_NV_ray_tracing
+* VK_KHR_external_memory
+* VK_KHR_external_memory_capabilities
+* VK_KHR_external_memory_win32
+* VK_KHR_external_semaphore
+* VK_KHR_external_semaphore_capabilities
+* VK_KHR_external_semaphore_win32
+* VK_KHR_external_fence
+* VK_KHR_external_fence_capabilities
+* VK_KHR_external_fence_win32
 
 # OpenGL Samples
 

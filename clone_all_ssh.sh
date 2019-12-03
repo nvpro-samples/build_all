@@ -32,5 +32,11 @@ folder gl_vk_supersampled
 folder gl_vk_bk3dthreaded
 folder gl_vk_meshlet_cadscene
 folder gl_vk_threaded_cadscene
+folder gl_vk_raytrace_interop
+folder gl_vk_simple_interop
+folder vk_raytrace
+folder vk_denoise
+folder vk_async_resources
+folder vk_shaded_gltfscene
 exit 0
 
