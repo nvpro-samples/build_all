@@ -74,14 +74,8 @@ This example is an extension of the vk_raytrace example. After a few iteration, 
 * VK_NV_ray_tracing
 * VK_EXT_descriptor_indexing
 * VK_KHR_external_memory
-* VK_KHR_external_memory_capabilities
-* VK_KHR_external_memory_win32
 * VK_KHR_external_semaphore
-* VK_KHR_external_semaphore_capabilities
-* VK_KHR_external_semaphore_win32
 * VK_KHR_external_fence
-* VK_KHR_external_fence_capabilities
-* VK_KHR_external_fence_win32
 
 **Tags**: raytracing, path-tracing, GLTF, HDR, tonemapper, picking, BLAS, TLAS, PBR material, denoising, Cuda, interop, OptiX
 
@@ -152,14 +146,8 @@ using Interop.
 * GL_EXT_memory_object
 * GL_EXT_semaphore
 * VK_KHR_external_memory
-* VK_KHR_external_memory_capabilities
-* VK_KHR_external_memory_win32
 * VK_KHR_external_semaphore
-* VK_KHR_external_semaphore_capabilities
-* VK_KHR_external_semaphore_win32
 * VK_KHR_external_fence
-* VK_KHR_external_fence_capabilities
-* VK_KHR_external_fence_win32
 
 ## [gl_vk_raytrace_interop](https://github.com/nvpro-samples/gl_vk_raytrace_interop)
 
@@ -174,14 +162,8 @@ by the OpenGL rasterizer.
 * GL_EXT_semaphore
 * VK_NV_ray_tracing
 * VK_KHR_external_memory
-* VK_KHR_external_memory_capabilities
-* VK_KHR_external_memory_win32
 * VK_KHR_external_semaphore
-* VK_KHR_external_semaphore_capabilities
-* VK_KHR_external_semaphore_win32
 * VK_KHR_external_fence
-* VK_KHR_external_fence_capabilities
-* VK_KHR_external_fence_win32
 
 # OpenGL Samples
 
