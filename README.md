@@ -27,6 +27,7 @@ Building as 64-bit is required and currently we only support the Windows platfor
 * [shared_sources](https://github.com/nvpro-samples/shared_sources): The primary framework that all samples depend on. Contains window management, ui, and various api helpers.
 * [shared_external](https://github.com/nvpro-samples/shared_external): Third party libraries that are provided pre-compiled, mostly for Windows x64 / MSVC.
 
+
 # Vulkan Samples
 
 These samples are "pure" Vulkan samples and use its WSI system to create the window swapchain.
@@ -79,6 +80,16 @@ This example is an extension of the vk_raytrace example. After a few iteration, 
 
 **Tags**: raytracing, path-tracing, GLTF, HDR, tonemapper, picking, BLAS, TLAS, PBR material, denoising, Cuda, interop, OptiX
 
+## [glsl_indexed_types_generator](https://github.com/nvpro-samples/glsl_indexed_types_generator)
+
+This project serves as proof of concept how to simplify the usage of `VK_EXT_descriptor_indexing` 
+and `GL_EXT_nonuniform_qualifier` within GLSL (typically used in combination with `VK_NV_ray_tracing`).
+A Lua script generates structures and function overloads to hide the code for indexing descriptor
+sets of samplers and textures.
+
+* stand-alone, does not depend on shared_sources
+* VK_EXT_descriptor_indexing
+* GL_EXT_nonuniform_qualifier
 
 # OpenGL / Vulkan Samples
 
@@ -204,7 +215,7 @@ Optimized screen-space ambient occlusion, cache-aware HBAO
 
 ## [gl_dynamic_lod](https://github.com/nvpro-samples/gl_dynamic_lod)
 
-![screenshot-gl_commandlist_basic](doc/gl_commandlist_basic.jpg)
+![screenshot-gl_commandlist_basic](doc/gl_dynamic_lod.jpg)
 
 GPU classifies how to render millions of particles. Close/large particles
 use tessellation, medium sized particles use an optimized instancing technique and distant
@@ -247,5 +258,4 @@ Single-threaded CUDA OpenGL Interop
 
 ## [gl_cl_interop_pingpong_st](https://github.com/nvpro-samples/gl_cl_interop_pingpong_st)
 Single-threaded OpenCL OpenGL Interop
-
 
