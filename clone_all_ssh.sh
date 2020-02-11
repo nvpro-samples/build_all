@@ -38,5 +38,6 @@ folder vk_raytrace
 folder vk_denoise
 folder vk_async_resources
 folder vk_shaded_gltfscene
+floder vk_raytracing_tutorial
 exit 0
 

@@ -25,6 +25,7 @@ CALL :folder vk_raytrace
 CALL :folder vk_denoise
 CALL :folder vk_async_resources
 CALL :folder vk_shaded_gltfscene
+CALL :folder vk_raytracing_tutorial
 
 :: force execution to quit at the end of the "main" logic
 EXIT /B %ERRORLEVEL%
