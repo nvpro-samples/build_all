@@ -80,6 +80,24 @@ This example is an extension of the vk_raytrace example. After a few iteration, 
 
 **Tags**: raytracing, path-tracing, GLTF, HDR, tonemapper, picking, BLAS, TLAS, PBR material, denoising, Cuda, interop, OptiX
 
+## [vk_raytracing_tutorial](https://github.com/nvpro-samples/vk_raytracing_tutorial)
+
+![screenshot-vk_denoise](doc/vk_raytracing_tutorial.png)
+
+A tutorial where it explain step-by-step what is needed to add ray tracing to an existing Vulkan application. The first tutorial is the base of ray tracing, and from this base, many other tutorials are explaining the various features of RTX.
+
+* Explain Vulkan ray tracing
+* Animating BLAS and TLAS
+* Using any hit shaders
+* Using memory managers for handling many objects and instances
+* Using an intersection shader and rendering implicit geometries
+* Jittering camera ray generation and image accumulation for anti-aliased images
+* Using various closest hit shaders
+* Using shader record to modify the behavior of the shader.
+* Recursive reflection vs iterative reflection
+
+**Tags**: raytracing, OBJ, tonemapper, BLAS, TLAS
+
 ## [glsl_indexed_types_generator](https://github.com/nvpro-samples/glsl_indexed_types_generator)
 
 This project serves as proof of concept how to simplify the usage of `VK_EXT_descriptor_indexing` 
