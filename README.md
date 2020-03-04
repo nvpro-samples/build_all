@@ -20,7 +20,7 @@ shared_external
 
 Each sample can be built either individually, or with `build_all/CMakeLists.txt` as single solution. You can still configure the solution for `build_all` to only include a subset of projects with the appropriate `BUILD_sample_name` checkbox in the cmake-ui.
 
-Building as 64-bit is required and currently we only support the Windows platform (MSVC 2017 is the compiler we use foremost). Linux will come at a later time.
+All samples must be built for a 64-bit architecture, and most samples require C++14. All of these samples support Windows (MSVC 2017 is our minimum compiler), while many of them also support Linux as well (more comprehensive Linux support is in progress).
 
 # Shared Dependencies
 
