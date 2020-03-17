@@ -36,10 +36,22 @@ These samples are "pure" Vulkan samples and use its WSI system to create the win
 
 ![screenshot-vk_async_resources](doc/vk_async_resources.png)
 
-In Vulkan lifetime management, such as deleting resources is a bit more complex than in OpenGL.
+In Vulkan lifetime management such as deleting resources is a bit more complex than in OpenGL.
 The basic sample describes a strategy that delays deletion of Vulkan resources for a few frames.
 Furthermore Vulkan provides multiple ways to upload data to the device, three different approaches
 are described.
+
+## [vk_device_generated_cmds](https://github.com/nvpro-samples/vk_device_generated_cmds)
+
+![screenshot-vk_device_generated_cmds](doc/vk_device_generated_cmds.png)
+
+In this sample the functionality of the VK_NV_device_generated_commands is demonstrated. This extension greatly enhanes the indirect drawing capabilities and adds the ability to change shaders on the device.
+Furthermore the usage of bindless buffers is shown, as an alternative to the classic descriptor set binding model.
+
+* Loads `.csf` and `.gltf 2` models
+* VK_NV_device_generated_commands
+* VK_EXT_buffer_device_address
+* GLSL_EXT_buffer_reference
 
 ## [vk_shaded_gltfscene](https://github.com/nvpro-samples/vk_shaded_gltfscene)
 
@@ -55,7 +67,7 @@ Load a [glTF](https://www.khronos.org/gltf/) scene with materials and textures. 
 
 ![screenshot-vk_raytrace](doc/vk_raytrace.png)
 
-Reads a [glTF](https://www.khronos.org/gltf/) scenes and renders the scene using NVIDIA ray tracing. It uses techniques like image base lighting and importance sampling, reflections, transparency and indirect illumination. The camera simulates a pin-hole whitted camera and the image is toned mapped using various tone mappers.
+Reads a [glTF](https://www.khronos.org/gltf/) scene and renders the scene using NVIDIA ray tracing. It uses techniques like image base lighting and importance sampling, reflections, transparency and indirect illumination. The camera simulates a pin-hole whitted camera and the image is toned mapped using various tone mappers.
 
 The example shows as well how to implement a picking ray, which is using the same acceleration structure for drawing, but is using the hit data to return the information under the mouse cursor. This information can be use for setting the camera interest position, or to debug any shading data.
 
@@ -69,7 +81,7 @@ The example shows as well how to implement a picking ray, which is using the sam
 
 ![screenshot-vk_denoise](doc/vk_denoise.png)
 
-This example is an extension of the vk_raytrace example. After a few iteration, the image will be denoised using the [Optix7 denoiser](https://developer.nvidia.com/optix-denoiser). To achieve this, an interop between Cuda and Vulkan is set. Vulkan images are converted to CUDA buffers and converted back after been denoised. This pass is inserted between other rendering passes, as it is done in vk_raytrace.
+This example is an extension of the vk_raytrace example. After a few iterations, the image will be denoised using the [Optix7 denoiser](https://developer.nvidia.com/optix-denoiser). To achieve this, an interop between CUDA and Vulkan is set. Vulkan images are converted to CUDA buffers and converted back after been denoised. This pass is inserted between other rendering passes, as it is done in vk_raytrace.
 
 * Loads `.gltf 2` models
 * VK_NV_ray_tracing
@@ -84,7 +96,7 @@ This example is an extension of the vk_raytrace example. After a few iteration, 
 
 ![screenshot-vk_denoise](doc/vk_raytracing_tutorial.png)
 
-A tutorial where it explain step-by-step what is needed to add ray tracing to an existing Vulkan application. The first tutorial is the base of ray tracing, and from this base, many other tutorials are explaining the various features of RTX.
+A tutorial that explains step-by-step what is needed to add ray tracing to an existing Vulkan application. The first tutorial is the base of ray tracing, and from this base, many other tutorials are explaining the various features of RTX.
 
 * Explain Vulkan ray tracing
 * Animating BLAS and TLAS
@@ -126,7 +138,6 @@ CPU bottlenecks due to the scene having lots of tiny drawcalls. Also touches upo
 * GL_NV_command_list
 * GL_NV_vertex_buffer_unified_memory
 * GL_NV_uniform_buffer_unified_memory
-* VK_NVX_device_generated_commands
 
 ## [gl_vk_meshlet_cadscene](https://github.com/nvpro-samples/gl_vk_threaded_cadscene)
 
@@ -169,7 +180,7 @@ Vulkan sample showing a high quality super-sampled rendering
 ![screenshot-gl_vk_simple_interop](doc/gl_vk_simple_interop.png)
 
 Rendering an animated image using a Vulkan compute shader and displaying this image
-using OpenGL on a animated triangle. The image is allocated with Vulkan and shared
+using OpenGL on an animated triangle. The image is allocated with Vulkan and shared
 using Interop.
 
 * GL_EXT_memory_object
@@ -184,7 +195,7 @@ using Interop.
 
 This example is adding ray traced ambient occlusion in an OpenGL scene.
 All buffers are shared between OpenGL and Vulkan to create the acceleration
-structure needed to ray trace. Rays are send from the G-Buffer position rendered
+structure needed to ray trace. Rays are sent from the G-Buffer position rendered
 by the OpenGL rasterizer.
 
 * GL_EXT_memory_object
@@ -193,6 +204,19 @@ by the OpenGL rasterizer.
 * VK_KHR_external_memory
 * VK_KHR_external_semaphore
 * VK_KHR_external_fence
+
+## [gl_render_vk_direct_display](https://github.com/nvpro-samples/gl_render_vk_direct_display)
+
+![screenshot-gl_render_vk_direct_display](doc/gl_render_vk_direct_display.png)
+
+This example shows how to use Vulkan Direct Display functionality from an OpenGL renderer.
+A Vulkan Direct Display class provides render textures to an OpenGL renderer, which after
+rendering submits the textures back to the Vulkan class for presentation on the
+Direct Display device.
+
+* VK_KHR_display
+* VK_KHR_external_memory
+* VK_KHR_external_semaphore
 
 # OpenGL Samples
 
@@ -225,7 +249,7 @@ readbacks.
 
 ## [gl_ssao](https://github.com/nvpro-samples/gl_ssao)
 
-![screenshot-gl_cadscene_rendertechniques](doc/gl_cadscene_rendertechniques.jpg)
+![screenshot-gl_ssao](doc/gl_ssao.jpg)
 
 Optimized screen-space ambient occlusion, cache-aware HBAO
 
@@ -261,19 +285,7 @@ Example of how to use path rendering; and how to use it with CMYK (using multi-r
 ## [gl_multicast](https://github.com/nvpro-samples/gl_multicast)
 
 Basic sample showcasing multicast capabilities, where one GL stream is very
-efficiently sent to multiple GPUs. Typical use-case is for example VR-SLI, where
+efficiently sent to multiple GPUs. Typical use-case is for example VR SLI, where
 each GPU renders a different eye.
 
 * GL_NV_gpu_multicast
-
-# CUDA/OpenCL/OpenGL Samples
-
-## [gl_cuda_interop_pingpong_st](https://github.com/nvpro-samples/gl_cuda_interop_pingpong_st)
-
-![screenshot-gl_cuda_interop_st](doc/gl_cuda_interop_st.png)
-
-Single-threaded CUDA OpenGL Interop
-
-## [gl_cl_interop_pingpong_st](https://github.com/nvpro-samples/gl_cl_interop_pingpong_st)
-Single-threaded OpenCL OpenGL Interop
-
