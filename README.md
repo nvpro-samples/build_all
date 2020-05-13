@@ -92,11 +92,11 @@ This example is an extension of the vk_raytrace example. After a few iterations,
 
 **Tags**: raytracing, path-tracing, GLTF, HDR, tonemapper, picking, BLAS, TLAS, PBR material, denoising, Cuda, interop, OptiX
 
-## [vk_raytracing_tutorial](https://github.com/nvpro-samples/vk_raytracing_tutorial)
+## [vk_raytracing_tutorial_KHR](https://github.com/nvpro-samples/vk_raytracing_tutorial_KHR)
 
-![screenshot-vk_denoise](doc/vk_raytracing_tutorial.png)
+![screenshot-vk_tutorial](doc/vk_raytracing_tutorial.png)
 
-A tutorial that explains step-by-step what is needed to add ray tracing to an existing Vulkan application. The first tutorial is the base of ray tracing, and from this base, many other tutorials are explaining the various features of RTX.
+A tutorial that explains step-by-step what is needed to add ray tracing to an existing Vulkan application. The first tutorial is the base of ray tracing, and from this base, many other tutorials are explaining the various features of RTX. 
 
 * Explain Vulkan ray tracing
 * Animating BLAS and TLAS
@@ -109,6 +109,20 @@ A tutorial that explains step-by-step what is needed to add ray tracing to an ex
 * Recursive reflection vs iterative reflection
 
 **Tags**: raytracing, OBJ, tonemapper, BLAS, TLAS
+
+## [vk_offline](https://github.com/nvpro-samples/vk_offline)
+
+![screenshot-vk_offline](doc/vk_offline.png)
+
+Simple offline application which using Vulkan to render without opening a window.
+
+* Very simple Vulkan offline rendering
+* Create Vulkan context
+* Render to frame buffer
+* Save frame buffer to disk (PNG)
+
+**Tags**: compute shader, offline rendering
+
 
 ## [glsl_indexed_types_generator](https://github.com/nvpro-samples/glsl_indexed_types_generator)
 
