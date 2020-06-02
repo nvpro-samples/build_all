@@ -36,6 +36,7 @@ folder gl_render_vk_direct_display
 folder vk_raytrace
 folder vk_denoise
 folder vk_async_resources
+folder vk_order_independent_transparency
 folder vk_shaded_gltfscene
 folder vk_raytracing_tutorial
 folder vk_device_generated_cmds

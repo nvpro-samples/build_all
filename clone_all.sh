@@ -37,6 +37,7 @@ folder gl_vk_threaded_cadscene
 folder vk_async_resources
 folder vk_denoise
 folder vk_device_generated_cmds
+folder vk_order_independent_transparency
 folder vk_raytrace
 folder vk_raytracing_tutorial
 folder vk_raytracing_tutorial_KHR

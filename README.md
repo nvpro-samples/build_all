@@ -123,6 +123,21 @@ Simple offline application which using Vulkan to render without opening a window
 
 **Tags**: compute shader, offline rendering
 
+## [vk_order_independent_transparency](https://github.com/nvpro-samples/vk_order_independent_transparency)
+
+![screenshot-vk_order_independent_transparency](doc/vk_order_independent_transparency.png)
+
+Demonstates seven different techniques for rendering transparent objects without requiring them to be sorted in advance.
+
+* Shows seven different ways to implement transparency
+* Includes antialiasing techniques and linear colorspace rendering
+* Render pass subpasses used to implement Weighted, Blended Order-Independent Transparency
+* Shows how to construct linked lists on the GPU
+* Includes example of fragment shader interlock (`GL_ARB_fragment_shader_interlock`, much like rasterizer order views in Direct3D 11.3)
+* Shows how to use 64-bit atomics and the `VK_KHR_shader_atomic_int64` extension.
+
+**Tags**: transparency, subpasses, MSAA, algorithms
+
 
 ## [glsl_indexed_types_generator](https://github.com/nvpro-samples/glsl_indexed_types_generator)
 

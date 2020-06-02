@@ -23,6 +23,7 @@ CALL :folder gl_render_vk_direct_display
 CALL :folder vk_raytrace
 CALL :folder vk_denoise
 CALL :folder vk_async_resources
+CALL :folder vk_order_independent_transparency
 CALL :folder vk_shaded_gltfscene
 CALL :folder vk_raytracing_tutorial
 CALL :filder vk_device_generated_cmds
