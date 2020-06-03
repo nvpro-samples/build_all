@@ -24,6 +24,7 @@ CALL :folder gl_vk_threaded_cadscene
 CALL :folder vk_async_resources
 CALL :folder vk_denoise
 CALL :folder vk_device_generated_cmds
+CALL :folder vk_offline
 CALL :folder vk_order_independent_transparency
 CALL :folder vk_raytrace
 CALL :folder vk_raytracing_tutorial
