@@ -138,6 +138,17 @@ Demonstates seven different techniques for rendering transparent objects without
 
 **Tags**: transparency, subpasses, MSAA, algorithms
 
+## [vk_toon_shader](https://github.com/nvpro-samples/vk_toon_shader)
+
+Rendering object outlines and details from canvases render with rasterizer or ray tracer.
+
+* Extracting object contours
+* Rendering lines for normal and depth discontinuities
+* Post-process chaining, image processed used by next post-process
+* FXAA on line buffers
+* Toon effect with shading and [Kuwahara](https://en.wikipedia.org/wiki/Kuwahara_filter) post-effect
+
+**Tags**: silhouette, contour, toon shading, post-process, fxaa
 
 ## [glsl_indexed_types_generator](https://github.com/nvpro-samples/glsl_indexed_types_generator)
 
