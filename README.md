@@ -140,6 +140,8 @@ Demonstates seven different techniques for rendering transparent objects without
 
 ## [vk_toon_shader](https://github.com/nvpro-samples/vk_toon_shader)
 
+![screenshot-vk_toon](doc/vk_toon_shader.png)
+
 Rendering object outlines and details from canvases render with rasterizer or ray tracer.
 
 * Extracting object contours
