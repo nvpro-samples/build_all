@@ -34,6 +34,7 @@ folder gl_vk_raytrace_interop
 folder gl_vk_simple_interop
 folder gl_vk_supersampled
 folder gl_vk_threaded_cadscene
+folder nvml_enterprise_gpu_check
 folder vk_async_resources
 folder vk_denoise
 folder vk_device_generated_cmds

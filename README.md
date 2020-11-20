@@ -331,3 +331,16 @@ efficiently sent to multiple GPUs. Typical use-case is for example VR SLI, where
 each GPU renders a different eye.
 
 * GL_NV_gpu_multicast
+
+# NVML Samples
+
+## [nvml_enterprise_gpu_check](https://github.com/nvpro-samples/nvml_enterprise_gpu_check)
+
+Shows how to correctly load the NVML library for GPU information, and to robustly check
+using NVML's API if a GPU is an Enterprise/Quadro GPU. (This works even when the GPU,
+such as the RTX A6000, doesn't have "Quadro" in its name.
+
+* nvmlInit
+* nvmlDeviceGetCount
+* nvmlDeviceGetHandleByIndex
+* nvmlDeviceGetBrand
