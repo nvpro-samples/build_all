@@ -37,6 +37,7 @@ folder nvml_enterprise_gpu_check
 folder vk_async_resources
 folder vk_denoise
 folder vk_device_generated_cmds
+folder vk_mini_path_tracer
 folder vk_offline
 folder vk_order_independent_transparency
 folder vk_raytrace

@@ -90,7 +90,20 @@ This example is an extension of the vk_raytrace example. After a few iterations,
 * VK_KHR_external_semaphore
 * VK_KHR_external_fence
 
-**Tags**: raytracing, path-tracing, GLTF, HDR, tonemapper, picking, BLAS, TLAS, PBR material, denoising, Cuda, interop, OptiX
+**Tags**: ray tracing, path tracing, GLTF, HDR, tonemapper, picking, BLAS, TLAS, PBR material, denoising, Cuda, interop, OptiX
+
+## [vk_mini_path_tracer](https://github.com/nvpro-samples/vk_mini_path_tracer)
+
+![screenshot-vk_mini_path_tracer](doc/vk_mini_path_tracer.png)
+
+A beginner-friendly Vulkan path tracing tutorial in under 300 lines of C++. Intended as both an introduction to Vulkan, and as an introduction to computer graphics through ray tracing. Includes tips and tricks along the way, and extra chapters show how to extend the path tracer, implement production techniques, and use a performance analysis tool. Dovetails into vk_raytracing_tutorial_KHR.
+
+* VK_KHR_acceleration_structure
+* VK_KHR_shader_non_semantic_info
+* VK_KHR_ray_query
+* VK_KHR_ray_tracing_pipeline
+
+**Tags**: ray tracing, path tracing, ray queries, ray tracing pipelines, compute shaders, debug printf, BLAS, TLAS, OBJ, beginner
 
 ## [vk_raytracing_tutorial_KHR](https://github.com/nvpro-samples/vk_raytracing_tutorial_KHR)
 
@@ -108,7 +121,7 @@ A tutorial that explains step-by-step what is needed to add ray tracing to an ex
 * Using shader record to modify the behavior of the shader.
 * Recursive reflection vs iterative reflection
 
-**Tags**: raytracing, OBJ, tonemapper, BLAS, TLAS
+**Tags**: ray tracing, OBJ, tonemapper, BLAS, TLAS
 
 ## [vk_offline](https://github.com/nvpro-samples/vk_offline)
 
