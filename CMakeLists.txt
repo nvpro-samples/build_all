@@ -1,10 +1,12 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.5)
 Project(nvpro-samples)
 
 # setting the base directory will also inform sub-cmake files
 # that they are included and not the first entry point
 SET(BASE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/..)
-INCLUDE(${CMAKE_CURRENT_SOURCE_DIR}/../shared_sources/CMakeLists_include.txt)
+SET(HAS_SHARED_SOURCES ON)
+
+INCLUDE(${CMAKE_CURRENT_SOURCE_DIR}/../shared_sources/cmake/setup.cmake)
 
 # These samples don't build on Linux as of today
 # Use a syntax like  below to turn off a sample:
@@ -40,5 +42,6 @@ endmacro(_addFolder)
 #### projects ###
 ##############################
 _addFolder("..")
+_addFolder("../shipped")
 
 add_subdirectory(../shared_sources ${CMAKE_BINARY_DIR}/shared_sources)
