@@ -16,8 +16,8 @@ folder() {
 }
 
 folder build_all
-folder shared_sources
-folder shared_external
+folder nvpro_core
+
 folder gl_cadscene_rendertechniques
 folder gl_commandlist_basic
 folder gl_dynamic_lod

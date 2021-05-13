@@ -3,8 +3,7 @@ pushd ..
 
 :: do something cool, then log it
 CALL :folder build_all
-CALL :folder shared_sources
-CALL :folder shared_external
+CALL :folder nvpro_core
 
 CALL :folder gl_cadscene_rendertechniques
 CALL :folder gl_commandlist_basic

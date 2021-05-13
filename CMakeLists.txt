@@ -4,9 +4,9 @@ Project(nvpro-samples)
 # setting the base directory will also inform sub-cmake files
 # that they are included and not the first entry point
 SET(BASE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/..)
-SET(HAS_SHARED_SOURCES ON)
+SET(HAS_NVPRO_CORE ON)
 
-INCLUDE(${CMAKE_CURRENT_SOURCE_DIR}/../shared_sources/cmake/setup.cmake)
+INCLUDE(${CMAKE_CURRENT_SOURCE_DIR}/../nvpro_core/cmake/setup.cmake)
 
 # These samples don't build on Linux as of today
 # Use a syntax like  below to turn off a sample:
@@ -24,7 +24,7 @@ macro(_addFolder _PATH)
           string( REGEX REPLACE "^.*/([^/]*)$" "\\1" SAMPLE_NAME ${sample} )
           if( (NOT (${SAMPLE_NAME} MATCHES "^__")) 
           AND (NOT(${SAMPLE_NAME} STREQUAL "build_all")) 
-          AND (NOT(${SAMPLE_NAME} STREQUAL "shared_sources")) 
+          AND (NOT(${SAMPLE_NAME} STREQUAL "nvpro_core")) 
           AND (NOT(${SAMPLE_NAME} STREQUAL "downloaded_resources")) 
           AND (NOT (BUILD_${SAMPLE_NAME} STREQUAL "OFF")))
               # build the option to include the project or not
@@ -44,4 +44,4 @@ endmacro(_addFolder)
 _addFolder("..")
 _addFolder("../shipped")
 
-add_subdirectory(../shared_sources ${CMAKE_BINARY_DIR}/shared_sources)
+add_subdirectory(../nvpro_core ${CMAKE_BINARY_DIR}/nvpro_core)

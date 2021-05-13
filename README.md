@@ -13,8 +13,7 @@ Running `clone_all` batch/script will create following directory structure
 
 ```bash
 build_all
-shared_sources
-shared_external
+nvpro_core
 ... (all repositories specified in the script)
 ```
 
@@ -24,8 +23,7 @@ All samples must be built for a 64-bit architecture, and most samples require C+
 
 # Shared Dependencies
 
-* [shared_sources](https://github.com/nvpro-samples/shared_sources): The primary framework that all samples depend on. Contains window management, ui, and various api helpers.
-* [shared_external](https://github.com/nvpro-samples/shared_external): Third party libraries that are provided pre-compiled, mostly for Windows x64 / MSVC.
+* [nvpro_core](https://github.com/nvpro-samples/nvpro_core): The primary framework that all samples depend on. Contains window management, ui, and various api helpers.
 
 
 # Vulkan Samples
@@ -172,7 +170,7 @@ and `GL_EXT_nonuniform_qualifier` within GLSL (typically used in combination wit
 A Lua script generates structures and function overloads to hide the code for indexing descriptor
 sets of samplers and textures.
 
-* stand-alone, does not depend on shared_sources
+* stand-alone, does not depend on nvpro_core
 * VK_EXT_descriptor_indexing
 * GL_EXT_nonuniform_qualifier
 
