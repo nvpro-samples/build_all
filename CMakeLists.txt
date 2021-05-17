@@ -25,6 +25,7 @@ macro(_addFolder _PATH)
           if( (NOT (${SAMPLE_NAME} MATCHES "^__")) 
           AND (NOT(${SAMPLE_NAME} STREQUAL "build_all")) 
           AND (NOT(${SAMPLE_NAME} STREQUAL "nvpro_core")) 
+          AND (NOT(${SAMPLE_NAME} STREQUAL "shared_sources")) # OBSOLETE folder : renamed as nvpro_core. But we still want to avoid it, in case someone left it by mistake
           AND (NOT(${SAMPLE_NAME} STREQUAL "downloaded_resources")) 
           AND (NOT (BUILD_${SAMPLE_NAME} STREQUAL "OFF")))
               # build the option to include the project or not
