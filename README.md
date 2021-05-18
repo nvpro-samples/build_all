@@ -6,7 +6,7 @@ The `build_all` folder is an optional folder that allows you to synchronize and 
 
 * CMakeLists.txt: the cmake file that will walk through samples to include them in the project
 * README.md: this file
-* LICENSE.md: the license used for all nvpro-samples
+* LICENSE: the license used for all nvpro-samples
 * batch/script files: allows to easily clone/pull all existing samples
 
 Running `clone_all` batch/script will create following directory structure
