@@ -28,7 +28,6 @@ CALL :folder vk_mini_path_tracer
 CALL :folder vk_offline
 CALL :folder vk_order_independent_transparency
 CALL :folder vk_raytrace
-CALL :folder vk_raytracing_tutorial
 CALL :folder vk_raytracing_tutorial_KHR
 CALL :folder vk_shaded_gltfscene
 CALL :folder vk_toon_shader
