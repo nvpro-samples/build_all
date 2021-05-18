@@ -3,8 +3,7 @@ pushd ..
 
 :: do something cool, then log it
 CALL :folder build_all
-CALL :folder shared_sources
-CALL :folder shared_external
+CALL :folder nvpro_core
 CALL :folder gl_cadscene_rendertechniques
 CALL :folder gl_commandlist_basic
 CALL :folder gl_dynamic_lod
@@ -28,7 +27,6 @@ CALL :folder vk_mini_path_tracer
 CALL :folder vk_offline
 CALL :folder vk_order_independent_transparency
 CALL :folder vk_raytrace
-CALL :folder vk_raytracing_tutorial
 CALL :folder vk_raytracing_tutorial_KHR
 CALL :folder vk_shaded_gltfscene
 CALL :folder vk_toon_shader
