@@ -31,6 +31,7 @@ CALL :folder vk_raytrace
 CALL :folder vk_raytracing_tutorial_KHR
 CALL :folder vk_shaded_gltfscene
 CALL :folder vk_toon_shader
+CALL :folder vk_idbuffer_rasterization
 
 :: force execution to quit at the end of the "main" logic
 EXIT /B %ERRORLEVEL%

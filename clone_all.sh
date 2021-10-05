@@ -44,5 +44,6 @@ folder vk_raytrace
 folder vk_raytracing_tutorial_KHR
 folder vk_shaded_gltfscene
 folder vk_toon_shader
+folder vk_idbuffer_rasterization
 exit 0
 

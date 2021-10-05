@@ -163,6 +163,18 @@ Rendering object outlines and details from canvases render with rasterizer or ra
 
 **Tags**: silhouette, contour, toon shading, post-process, fxaa
 
+## [vk_idbuffer_rasterization](https://github.com/nvpro-samples/vk_idbuffer_rasterization)
+
+![screenshot-vk_idbuffer_rasterization](doc/vk_idbuffer_rasterization.png)
+
+Render per-part IDs efficiently, can be used for selection, or id/item-buffer rasterization
+where a pixel represents each part uniquely. 
+
+* CAD object is made of many parts, rendering all individually is too slow. Use gl_PrimitiveID to accelerate the process and allow larger drawcalls that represent many parts at once
+* Use 64-bit atomics to do a very cheap selection highlight mechanism in the fragment shader
+
+**Tags**: idbuffer, item buffer, optimization, selection highlight
+
 ## [glsl_indexed_types_generator](https://github.com/nvpro-samples/glsl_indexed_types_generator)
 
 This project serves as proof of concept how to simplify the usage of `VK_EXT_descriptor_indexing` 
