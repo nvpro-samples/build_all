@@ -45,5 +45,7 @@ folder vk_raytracing_tutorial_KHR
 folder vk_shaded_gltfscene
 folder vk_toon_shader
 folder vk_idbuffer_rasterization
+folder vk_mini_samples
+folder nvtt_samples
 exit 0
 
