@@ -5,8 +5,8 @@ pushd ..
 for dir in *; do
    for file in "$dir"; do
      pushd $file
-     echo git pull for $file
-     git pull
+     echo git pull --recurse-submodules for $file
+     git pull --recurse-submodules
      popd
    done
 done
