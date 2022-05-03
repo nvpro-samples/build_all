@@ -414,7 +414,7 @@ such as the RTX A6000, doesn't have "Quadro" in its name.
 
 ## [nvtt_samples](https://github.com/nvpro-samples/nvtt_samples)
 
-![nvtt_samples](doc\nvtt_samples.png)
+![nvtt_samples](doc/nvtt_samples.png)
 
 *([full resolution compression comparison here](https://developer.nvidia.com/sites/default/files/akamai/nvtt/marbles-astc-repeat.png))*
 
