@@ -34,18 +34,23 @@ folder gl_vk_simple_interop
 folder gl_vk_supersampled
 folder gl_vk_threaded_cadscene
 folder nvml_enterprise_gpu_check
+folder nvtt_samples
 folder vk_async_resources
+folder vk_compute_mipmaps
 folder vk_denoise
 folder vk_device_generated_cmds
+folder vk_idbuffer_rasterization
+folder vk_inherited_viewport
 folder vk_mini_path_tracer
+folder vk_mini_samples
 folder vk_offline
 folder vk_order_independent_transparency
 folder vk_raytrace
 folder vk_raytracing_tutorial_KHR
 folder vk_shaded_gltfscene
+folder vk_timeline_semaphore
 folder vk_toon_shader
-folder vk_idbuffer_rasterization
-folder vk_mini_samples
-folder nvtt_samples
+folder vk_video_samples
+
 exit 0
 

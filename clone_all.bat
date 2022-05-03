@@ -21,19 +21,23 @@ CALL :folder gl_vk_simple_interop
 CALL :folder gl_vk_supersampled
 CALL :folder gl_vk_threaded_cadscene
 CALL :folder nvml_enterprise_gpu_check
+CALL :folder nvtt_samples
 CALL :folder vk_async_resources
+CALL :folder vk_compute_mipmaps
 CALL :folder vk_denoise
 CALL :folder vk_device_generated_cmds
+CALL :folder vk_idbuffer_rasterization
+CALL :folder vk_inherited_viewport
 CALL :folder vk_mini_path_tracer
+CALL :folder vk_mini_samples
 CALL :folder vk_offline
 CALL :folder vk_order_independent_transparency
 CALL :folder vk_raytrace
 CALL :folder vk_raytracing_tutorial_KHR
 CALL :folder vk_shaded_gltfscene
+CALL :folder vk_timeline_semaphore
 CALL :folder vk_toon_shader
-CALL :folder vk_idbuffer_rasterization
-CALL :folder vk_mini_samples
-CALL :folder nvtt_samples
+CALL :folder vk_video_samples
 
 :: force execution to quit at the end of the "main" logic
 EXIT /B %ERRORLEVEL%

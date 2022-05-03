@@ -4,12 +4,12 @@
 
 The `build_all` folder is an optional folder that allows you to synchronize and build all the samples that you have cloned using a single solution.
 
-* CMakeLists.txt: the cmake file that will walk through samples to include them in the project
+* CMakeLists.txt: the CMake file that will walk through samples to include them in the project
 * README.md: this file
 * LICENSE: the license used for all nvpro-samples
 * batch/script files: allows to easily clone/pull all existing samples
 
-Running `clone_all` batch/script will create following directory structure
+Running the `clone_all` batch/script will create the following directory structure:
 
 ```bash
 build_all
@@ -17,13 +17,13 @@ nvpro_core
 ... (all repositories specified in the script)
 ```
 
-Each sample can be built either individually, or with `build_all/CMakeLists.txt` as single solution. You can still configure the solution for `build_all` to only include a subset of projects with the appropriate `BUILD_sample_name` checkbox in the cmake-ui.
+Each sample can be built either individually, or with `build_all/CMakeLists.txt` as single solution. You can also configure the solution for `build_all` to only include a subset of projects with the appropriate `BUILD_sample_name` checkbox in the CMake UI.
 
 All samples must be built for a 64-bit architecture, and most samples require C++14. All of these samples support Windows (MSVC 2017 is our minimum compiler), while many of them also support Linux as well (more comprehensive Linux support is in progress).
 
 # Shared Dependencies
 
-* [nvpro_core](https://github.com/nvpro-samples/nvpro_core): The primary framework that all samples depend on. Contains window management, ui, and various api helpers.
+* [nvpro_core](https://github.com/nvpro-samples/nvpro_core): The primary framework that all samples depend on. Contains window management, UI, and various API helpers.
 
 
 # Vulkan Samples
@@ -39,41 +39,15 @@ The basic sample describes a strategy that delays deletion of Vulkan resources f
 Furthermore Vulkan provides multiple ways to upload data to the device, three different approaches
 are described.
 
-## [vk_device_generated_cmds](https://github.com/nvpro-samples/vk_device_generated_cmds)
+**Tags**: synchronization
 
-![screenshot-vk_device_generated_cmds](doc/vk_device_generated_cmds.png)
+## [vk_compute_mipmaps](https://github.com/nvpro-samples/vk_compute_mipmaps)
 
-In this sample the functionality of the VK_NV_device_generated_commands is demonstrated. This extension greatly enhanes the indirect drawing capabilities and adds the ability to change shaders on the device.
-Furthermore the usage of bindless buffers is shown, as an alternative to the classic descriptor set binding model.
+![screenshot-vk_compute_mipmaps](doc/vk_compute_mipmaps.png)
 
-* Loads `.csf` and `.gltf 2` models
-* VK_NV_device_generated_commands
-* VK_EXT_buffer_device_address
-* GLSL_EXT_buffer_reference
+Demonstrates a customizable cache-aware mipmap generation algorithm using compute shaders. Includes the **`nvpro_pyramid`** library, which can be used independently of this sample with no dependencies besides standard C++ and Vulkan. Supports non-power-of-2 textures while outperforming the conventional blit algorithm.
 
-## [vk_shaded_gltfscene](https://github.com/nvpro-samples/vk_shaded_gltfscene)
-
-![screenshot-vk_shaded_gltfscene](doc/vk_shaded_gltfscene.png)
-
-Load a [glTF](https://www.khronos.org/gltf/) scene with materials and textures. Display a HDR image in the background and use it for lighting the scene. It renders in multiple passes, background, scene, then tonemap the result and add UI at the end. Shows how to deal with many objects, many materials and textures. This example will push the material parameters through `push_constant` and uses different descriptor sets to enable the textures to use. It also shows how to read the depth buffer to un-project the mouse coordinate to 3D position to set the camera interest.
-
-* Loads `.gltf 2` models
-
-**Tags**: GLTF, PBR material, HDR, tonemapper, textures, mipmapping, debugging shader, depth buffer reading, unproject, importance sampling, cubemap
-
-## [vk_raytrace](https://github.com/nvpro-samples/vk_raytrace)
-
-![screenshot-vk_raytrace](doc/vk_raytrace.png)
-
-Reads a [glTF](https://www.khronos.org/gltf/) scene and renders the scene using NVIDIA ray tracing. It uses techniques like image base lighting and importance sampling, reflections, transparency and indirect illumination. The camera simulates a pin-hole whitted camera and the image is toned mapped using various tone mappers.
-
-The example shows as well how to implement a picking ray, which is using the same acceleration structure for drawing, but is using the hit data to return the information under the mouse cursor. This information can be use for setting the camera interest position, or to debug any shading data.
-
-* Loads `.gltf 2` models
-* VK_NV_ray_tracing
-* VK_EXT_descriptor_indexing
-
-**Tags**: raytracing, GLTF, HDR, tonemapper, picking, BLAS, TLAS, PBR material
+**Tags**: mipmapping, image processing, compute shader, library, subgroups, procedural
 
 ## [vk_denoise](https://github.com/nvpro-samples/vk_denoise)
 
@@ -88,7 +62,40 @@ This example is an extension of the vk_raytrace example. After a few iterations,
 * VK_KHR_external_semaphore
 * VK_KHR_external_fence
 
-**Tags**: ray tracing, path tracing, GLTF, HDR, tonemapper, picking, BLAS, TLAS, PBR material, denoising, Cuda, interop, OptiX
+**Tags**: ray tracing, path tracing, glTF, HDR, tonemapper, picking, BLAS, TLAS, PBR material, denoising, Cuda, interop, OptiX
+
+## [vk_device_generated_cmds](https://github.com/nvpro-samples/vk_device_generated_cmds)
+
+![screenshot-vk_device_generated_cmds](doc/vk_device_generated_cmds.png)
+
+In this sample the functionality of the VK_NV_device_generated_commands is demonstrated. This extension greatly enhances the indirect drawing capabilities and adds the ability to change shaders on the device.
+Furthermore the usage of bindless buffers is shown, as an alternative to the classic descriptor set binding model.
+
+* Loads `.csf` and `.gltf 2` models
+* VK_NV_device_generated_commands
+* VK_EXT_buffer_device_address
+* GLSL_EXT_buffer_reference
+
+**Tags:** Device Generated Commands, glTF, synchronization, bindless
+
+## [vk_idbuffer_rasterization](https://github.com/nvpro-samples/vk_idbuffer_rasterization)
+
+![screenshot-vk_idbuffer_rasterization](doc/vk_idbuffer_rasterization.png)
+
+Shows how to render per-part IDs efficiently. This can be used for selection for or id/item-buffer rasterization where a pixel represents each part uniquely.
+
+* A CAD object is made of many parts; rendering them all individually is too slow. Use `gl_PrimitiveID` to accelerate the process and allow larger drawcalls that represent many parts at once.
+* Use 64-bit atomics to do a very cheap selection highlight mechanism in the fragment shader.
+
+**Tags**: idbuffer, item buffer, optimization, selection highlight
+
+## [vk_inherited_viewport](https://github.com/nvpro-samples/vk_inherited_viewport)
+
+![screenshot-vk_inherited_viewport](doc/vk_inherited_viewport.jpg)
+
+Demonstrates how to use the VK_NV_inherited_viewport_scissor extension to redraw scenes with dynamically changing scissor and viewport settings without having to re-record secondary command buffers.
+
+**Tags**: optimization, indirect draw, instancing
 
 ## [vk_mini_path_tracer](https://github.com/nvpro-samples/vk_mini_path_tracer)
 
@@ -102,6 +109,20 @@ A beginner-friendly Vulkan path tracing tutorial in under 300 lines of C++. Inte
 * VK_KHR_ray_tracing_pipeline
 
 **Tags**: ray tracing, path tracing, ray queries, ray tracing pipelines, compute shaders, debug printf, BLAS, TLAS, OBJ, beginner
+
+## [vk_raytrace](https://github.com/nvpro-samples/vk_raytrace)
+
+![screenshot-vk_raytrace](doc/vk_raytrace.png)
+
+Reads a [glTF](https://www.khronos.org/gltf/) scene and renders the scene using NVIDIA ray tracing. It uses techniques like image base lighting and importance sampling, reflections, transparency and indirect illumination. The camera simulates a pin-hole whitted camera and the image is toned mapped using various tone mappers.
+
+The example shows as well how to implement a picking ray, which is using the same acceleration structure for drawing, but is using the hit data to return the information under the mouse cursor. This information can be use for setting the camera interest position, or to debug any shading data.
+
+* Loads `.gltf 2` models
+* VK_NV_ray_tracing
+* VK_EXT_descriptor_indexing
+
+**Tags**: ray tracing, glTF, HDR, tonemapper, picking, BLAS, TLAS, PBR material
 
 ## [vk_raytracing_tutorial_KHR](https://github.com/nvpro-samples/vk_raytracing_tutorial_KHR)
 
@@ -149,6 +170,27 @@ Demonstates seven different techniques for rendering transparent objects without
 
 **Tags**: transparency, subpasses, MSAA, algorithms
 
+## [vk_shaded_gltfscene](https://github.com/nvpro-samples/vk_shaded_gltfscene)
+
+![screenshot-vk_shaded_gltfscene](doc/vk_shaded_gltfscene.png)
+
+Load a [glTF](https://www.khronos.org/gltf/) scene with materials and textures. Display a HDR image in the background and use it for lighting the scene. It renders in multiple passes, background, scene, then tonemap the result and add UI at the end. Shows how to deal with many objects, many materials and textures. This example will push the material parameters through `push_constant` and uses different descriptor sets to enable the textures to use. It also shows how to read the depth buffer to un-project the mouse coordinate to 3D position to set the camera interest.
+
+* Loads `.gltf 2` models
+
+**Tags**: glTF, PBR material, HDR, tonemapper, textures, mipmapping, debugging shader, depth buffer reading, picking, importance sampling, cubemap
+
+## [vk_timeline_semaphore](https://github.com/nvpro-samples/vk_timeline_semaphore)
+
+![screenshot-vk_timeline_semaphore](doc/vk_timeline_semaphore.png)
+
+Provides a concrete example of how timeline semaphores and asynchronous compute-only queues can be used to speed up a heterogeneous compute/graphics Vulkan application.
+
+* Implicit surface rendering using the marching cubes algorithm
+* VK_KHR_timeline_semaphore
+
+**Tags**: synchronization, compute shader, procedural
+
 ## [vk_toon_shader](https://github.com/nvpro-samples/vk_toon_shader)
 
 ![screenshot-vk_toon](doc/vk_toon_shader.png)
@@ -163,17 +205,19 @@ Rendering object outlines and details from canvases render with rasterizer or ra
 
 **Tags**: silhouette, contour, toon shading, post-process, fxaa
 
-## [vk_idbuffer_rasterization](https://github.com/nvpro-samples/vk_idbuffer_rasterization)
+## [vk_video_samples](https://github.com/nvpro-samples/vk_video_samples)
 
-![screenshot-vk_idbuffer_rasterization](doc/vk_idbuffer_rasterization.png)
+![screenshot-vk_video_samples](doc/vk_video_samples.png)
 
-Render per-part IDs efficiently, can be used for selection, or id/item-buffer rasterization
-where a pixel represents each part uniquely. 
+Encodes and decodes video with an all-Vulkan end-to-end pipeline using the Vulkan Video APIs.
 
-* CAD object is made of many parts, rendering all individually is too slow. Use gl_PrimitiveID to accelerate the process and allow larger drawcalls that represent many parts at once
-* Use 64-bit atomics to do a very cheap selection highlight mechanism in the fragment shader
+* Hardware video decoding
+* YCbCr-to-RGB conversion via VK_KHR_sampler_ycbcr_conversion
+* Picture parameter extraction
+* YCbCr 4:2:0 h.264 encoding
+* Extensions: VK_KHR_video_queue, VK_KHR_video_decode_queue, VK_KHR_video_encode_queue, VK_EXT_video_decode_h264, VK_EXT_video_decode_h265, VK_EXT_video_encode_h264
 
-**Tags**: idbuffer, item buffer, optimization, selection highlight
+**Tags**: video, image processing
 
 ## [glsl_indexed_types_generator](https://github.com/nvpro-samples/glsl_indexed_types_generator)
 
@@ -355,11 +399,11 @@ each GPU renders a different eye.
 
 * GL_NV_gpu_multicast
 
-# NVML Samples
+# Other APIs
 
 ## [nvml_enterprise_gpu_check](https://github.com/nvpro-samples/nvml_enterprise_gpu_check)
 
-Shows how to correctly load the NVML library for GPU information, and to robustly check
+Shows how to correctly load the [NVML library for GPU information](https://developer.nvidia.com/nvidia-management-library-nvml), and to robustly check
 using NVML's API if a GPU is an Enterprise/Quadro GPU. (This works even when the GPU,
 such as the RTX A6000, doesn't have "Quadro" in its name.
 
@@ -367,3 +411,14 @@ such as the RTX A6000, doesn't have "Quadro" in its name.
 * nvmlDeviceGetCount
 * nvmlDeviceGetHandleByIndex
 * nvmlDeviceGetBrand
+
+## [nvtt_samples](https://github.com/nvpro-samples/nvtt_samples)
+
+![nvtt_samples](doc\nvtt_samples.png)
+
+*([full resolution compression comparison here](https://developer.nvidia.com/sites/default/files/akamai/nvtt/marbles-astc-repeat.png))*
+
+Shows how to use [NVTT 3](https://developer.nvidia.com/gpu-accelerated-texture-compression), a GPU-accelerated texture compression and image processing library. This includes several small samples intended as tutorials — such as a program that uses NVTT to load an image and compress it to a one-mipmap DDS file using BC7 block compression in less than 250 C++ characters — and the source code for several tools from NVTT 3 ported to the nvpro-samples framework.
+
+**Tags:** compression, image processing, CUDA
+
