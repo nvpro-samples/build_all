@@ -2,7 +2,7 @@
 
 # nvpro-samples
 
-The `build_all` folder is an optional folder that allows you to synchronize and build all the samples that you have cloned using a single solution.
+The `build_all` repository is optional and contains scripts that allow you to synchronize and build all the samples that you have cloned using a single solution.
 
 * CMakeLists.txt: the CMake file that will walk through samples to include them in the project
 * README.md: this file
@@ -11,15 +11,32 @@ The `build_all` folder is an optional folder that allows you to synchronize and 
 
 Running the `clone_all` batch/script will create the following directory structure:
 
+
+
+| :warning: |**Make sure to place the build_all repository into its own separate directory**! |
+| --- | --- |
+| | Use, for instance, 'nvpro-samples'. This prevents the clone_all script from polluting, for example, your home directory. 'clone_all' will place all individual nvpro-samples right next to build_all. |
+
 ```bash
-build_all
-nvpro_core
-... (all repositories specified in the script)
+nvpro-samples
+    build_all
+    nvpro_core
+    ... (all repositories specified in the script)
 ```
 
 Each sample can be built either individually, or with `build_all/CMakeLists.txt` as single solution. You can also configure the solution for `build_all` to only include a subset of projects with the appropriate `BUILD_sample_name` checkbox in the CMake UI.
 
-All samples must be built for a 64-bit architecture, and most samples require C++17. All of these samples support Windows (MSVC 2017 is our minimum compiler), while many of them also support Linux as well (more comprehensive Linux support is in progress).
+All samples must be built for a 64-bit architecture and require C++17. All of these samples support Windows (MSVC 2017 is our minimum compiler), while nearly all support Linux as well.
+
+## Linux prerequisites
+
+The samples attempt to pull in third-party dependencies automatically. But there are a few system libraries they depend on. CMake may not pick up all dependencies during the setup phase and compilation will bail out due to missing headers. The following line installs many of the potentially missing system library headers and libraries:
+```bash
+sudo apt-get install libx11-dev libxcb1-dev libxcb-keysyms1-dev libxcursor-dev libxi-dev libxinerama-dev libxrandr-dev libvulkan-dev libassimp-dev
+# not necessary, but recommended
+sudo apt-get install libglfw3-dev
+```
+Additionally, the samples require a C++17 capable compiler and CMake 3.10 or higher.
 
 # Shared Dependencies
 
@@ -53,7 +70,7 @@ Demonstrates a customizable cache-aware mipmap generation algorithm using comput
 
 ![screenshot-vk_denoise](doc/vk_denoise.png)
 
-This example is an extension of the vk_raytrace example. After a few iterations, the image will be denoised using the [Optix7 denoiser](https://developer.nvidia.com/optix-denoiser). To achieve this, an interop between CUDA and Vulkan is set. Vulkan images are converted to CUDA buffers and converted back after been denoised. This pass is inserted between other rendering passes, as it is done in vk_raytrace.
+This example is an extension of the vk_raytrace example. After a few iterations, the image will be denoised using the [Optix7 denoiser](https://developer.nvidia.com/optix-denoiser). To achieve this, we use interop between CUDA and Vulkan. Vulkan images are converted to CUDA buffers and converted back after being denoised. This pass is inserted between other rendering passes, as it is done in vk_raytrace.
 
 * Loads `.gltf 2` models
 * VK_NV_ray_tracing
@@ -84,7 +101,7 @@ Furthermore the usage of bindless buffers is shown, as an alternative to the cla
 
 Shows how to render per-part IDs efficiently. This can be used for selection for or id/item-buffer rasterization where a pixel represents each part uniquely.
 
-* A CAD object is made of many parts; rendering them all individually is too slow. Use `gl_PrimitiveID` to accelerate the process and allow larger drawcalls that represent many parts at once.
+* A CAD object is made of many parts; rendering them all individually is too slow. Use `gl_PrimitiveID` to accelerate the process and allow larger draw calls that represent many parts at once.
 * Use 64-bit atomics to do a very cheap selection highlight mechanism in the fragment shader.
 
 **Tags**: idbuffer, item buffer, optimization, selection highlight
@@ -114,7 +131,7 @@ A beginner-friendly Vulkan path tracing tutorial in under 300 lines of C++. Inte
 
 ![screenshot-vk_raytrace](doc/vk_raytrace.png)
 
-Reads a [glTF](https://www.khronos.org/gltf/) scene and renders the scene using NVIDIA ray tracing. It uses techniques like image base lighting and importance sampling, reflections, transparency and indirect illumination. The camera simulates a pin-hole whitted camera and the image is toned mapped using various tone mappers.
+Reads a [glTF](https://www.khronos.org/gltf/) scene and renders the scene using NVIDIA ray tracing. It uses techniques like image base lighting and importance sampling, reflections, transparency and indirect illumination. The camera simulates a pinhole Whitted camera and the image is toned mapped using various tone mappers.
 
 The example shows as well how to implement a picking ray, which is using the same acceleration structure for drawing, but is using the hit data to return the information under the mouse cursor. This information can be use for setting the camera interest position, or to debug any shading data.
 
@@ -128,7 +145,7 @@ The example shows as well how to implement a picking ray, which is using the sam
 
 ![screenshot-vk_tutorial](doc/vk_raytracing_tutorial.png)
 
-A tutorial that explains step-by-step what is needed to add ray tracing to an existing Vulkan application. The first tutorial is the base of ray tracing, and from this base, many other tutorials are explaining the various features of RTX. 
+A tutorial that explains step-by-step what is needed to add ray tracing to an existing Vulkan application. The first tutorial is the base of ray tracing, and from this base, many other tutorials explain the various features of RTX.
 
 * Explain Vulkan ray tracing
 * Animating BLAS and TLAS
@@ -221,7 +238,7 @@ Encodes and decodes video with an all-Vulkan end-to-end pipeline using the Vulka
 
 ## [glsl_indexed_types_generator](https://github.com/nvpro-samples/glsl_indexed_types_generator)
 
-This project serves as proof of concept how to simplify the usage of `VK_EXT_descriptor_indexing` 
+This project serves as proof of concept how to simplify the usage of `VK_EXT_descriptor_indexing`
 and `GL_EXT_nonuniform_qualifier` within GLSL (typically used in combination with `VK_NV_ray_tracing`).
 A Lua script generates structures and function overloads to hide the code for indexing descriptor
 sets of samplers and textures.
