@@ -19,7 +19,7 @@ nvpro_core
 
 Each sample can be built either individually, or with `build_all/CMakeLists.txt` as single solution. You can also configure the solution for `build_all` to only include a subset of projects with the appropriate `BUILD_sample_name` checkbox in the CMake UI.
 
-All samples must be built for a 64-bit architecture, and most samples require C++14. All of these samples support Windows (MSVC 2017 is our minimum compiler), while many of them also support Linux as well (more comprehensive Linux support is in progress).
+All samples must be built for a 64-bit architecture, and most samples require C++17. All of these samples support Windows (MSVC 2017 is our minimum compiler), while many of them also support Linux as well (more comprehensive Linux support is in progress).
 
 # Shared Dependencies
 
