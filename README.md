@@ -416,6 +416,18 @@ each GPU renders a different eye.
 
 * GL_NV_gpu_multicast
 
+#DirectX 12 Samples
+
+## [dx12_present_barrier](https://github.com/nvpro-samples/dx12_present_barrier)
+
+![screenshot-dx12_present_barrier](doc/dx12_present_barrier.jpg)
+
+This sample demonstrates the usage of the new NvAPI interface to synchronize
+present calls between windows on the same system as well as on distributed
+systems. It can also be used to check if systems are configured to support
+synchronized present through DirectX 12 present barrier. A general overview of
+the interface can be found on the [NVIDIA developer blog](https://developer.nvidia.com/blog/).
+
 # Other APIs
 
 ## [nvml_enterprise_gpu_check](https://github.com/nvpro-samples/nvml_enterprise_gpu_check)

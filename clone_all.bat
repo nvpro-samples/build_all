@@ -5,6 +5,7 @@ pushd ..
 CALL :folder build_all
 CALL :folder nvpro_core
 
+CALL :folder dx12_present_barrier
 CALL :folder gl_cadscene_rendertechniques
 CALL :folder gl_commandlist_basic
 CALL :folder gl_dynamic_lod
