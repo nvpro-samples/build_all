@@ -426,7 +426,7 @@ This sample demonstrates the usage of the new NvAPI interface to synchronize
 present calls between windows on the same system as well as on distributed
 systems. It can also be used to check if systems are configured to support
 synchronized present through DirectX 12 present barrier. A general overview of
-the interface can be found on the [NVIDIA developer blog](https://developer.nvidia.com/blog/).
+the interface can be found on the [NVIDIA developer blog](https://developer.nvidia.com/blog/synchronizing-present-calls-between-applications-on-distributed-systems-with-directx-12/).
 
 # Other APIs
 
