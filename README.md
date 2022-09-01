@@ -272,9 +272,9 @@ CPU bottlenecks due to the scene having lots of tiny drawcalls. Also touches upo
 This OpenGL/Vulkan sample illustrates the use of [mesh shaders](https://devblogs.nvidia.com/introduction-turing-mesh-shaders/) for rendering CAD models.
 
 * Loads `.csf` and `.gltf 2` models
-* GL_NV_draw_vulkan_image (not used in `VULKAN_ONLY`)
 * GL_NV_mesh_shader
 * VK_NV_mesh_shader
+* VK_EXT_mesh_shader
 
 ## [gl_vk_chopper](https://github.com/nvpro-samples/gl_vk_chopper)
 
