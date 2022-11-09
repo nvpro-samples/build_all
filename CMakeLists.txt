@@ -12,8 +12,9 @@ INCLUDE(${CMAKE_CURRENT_SOURCE_DIR}/../nvpro_core/cmake/setup.cmake)
 # Use a syntax like  below to turn off a sample:
 #  SET(BUILD_gl_cuda_interop_pingpong_st OFF)
 if(UNIX)
-	SET(BUILD_gl_render_vk_direct_display OFF)
-	SET(BUILD_gl_render_vk_ddisplay OFF)
+  SET(BUILD_dx12_present_barrier OFF)
+  SET(BUILD_gl_render_vk_direct_display OFF)
+  SET(BUILD_gl_render_vk_ddisplay OFF)
 endif(UNIX)
 
 macro(_addFolder _PATH)
