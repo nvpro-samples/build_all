@@ -29,6 +29,7 @@ CALL :folder vk_denoise
 CALL :folder vk_device_generated_cmds
 CALL :folder vk_idbuffer_rasterization
 CALL :folder vk_inherited_viewport
+CALL :folder vk_memory_decompression
 CALL :folder vk_mini_path_tracer
 CALL :folder vk_mini_samples
 CALL :folder vk_offline

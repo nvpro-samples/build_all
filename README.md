@@ -114,6 +114,14 @@ Demonstrates how to use the VK_NV_inherited_viewport_scissor extension to redraw
 
 **Tags**: optimization, indirect draw, instancing
 
+## [vk_memory_decompression](https://github.com/nvpro-samples/vk_memory_decompression)
+
+![screenshot-vk_memory_decompression](doc/vk_memory_decompression.png)
+
+Shows how to use the Vulkan memory decompression extension (VK_NV_memory_decompression) to compress and decompress with NVIDIA GDeflate, using the NVIDIA fork of libdeflate.
+
+**Tags**: compression
+
 ## [vk_mini_path_tracer](https://github.com/nvpro-samples/vk_mini_path_tracer)
 
 ![screenshot-vk_mini_path_tracer](doc/vk_mini_path_tracer.png)
@@ -272,9 +280,9 @@ CPU bottlenecks due to the scene having lots of tiny drawcalls. Also touches upo
 This OpenGL/Vulkan sample illustrates the use of [mesh shaders](https://devblogs.nvidia.com/introduction-turing-mesh-shaders/) for rendering CAD models.
 
 * Loads `.csf` and `.gltf 2` models
+* GL_NV_draw_vulkan_image (not used in `VULKAN_ONLY`)
 * GL_NV_mesh_shader
 * VK_NV_mesh_shader
-* VK_EXT_mesh_shader
 
 ## [gl_vk_chopper](https://github.com/nvpro-samples/gl_vk_chopper)
 
@@ -416,7 +424,7 @@ each GPU renders a different eye.
 
 * GL_NV_gpu_multicast
 
-#DirectX 12 Samples
+# DirectX 12 Samples
 
 ## [dx12_present_barrier](https://github.com/nvpro-samples/dx12_present_barrier)
 

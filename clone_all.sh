@@ -42,6 +42,7 @@ folder vk_denoise
 folder vk_device_generated_cmds
 folder vk_idbuffer_rasterization
 folder vk_inherited_viewport
+folder vk_memory_decompression
 folder vk_mini_path_tracer
 folder vk_mini_samples
 folder vk_offline
