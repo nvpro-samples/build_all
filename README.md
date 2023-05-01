@@ -32,7 +32,7 @@ All samples must be built for a 64-bit architecture and require C++17. All of th
 
 The samples attempt to pull in third-party dependencies automatically. But there are a few system libraries they depend on. CMake may not pick up all dependencies during the setup phase and compilation will bail out due to missing headers. The following line installs many of the potentially missing system library headers and libraries:
 ```bash
-sudo apt-get install libx11-dev libxcb1-dev libxcb-keysyms1-dev libxcursor-dev libxi-dev libxinerama-dev libxrandr-dev libvulkan-dev libassimp-dev
+sudo apt-get install libx11-dev libxcb1-dev libxcb-keysyms1-dev libxcursor-dev libxi-dev libxinerama-dev libxrandr-dev libxxf86vm-dev libvulkan-dev libassimp-dev
 # not necessary, but recommended
 sudo apt-get install libglfw3-dev
 ```
