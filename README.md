@@ -79,7 +79,7 @@ This example is an extension of the vk_raytrace example. After a few iterations,
 * VK_KHR_external_semaphore
 * VK_KHR_external_fence
 
-**Tags**: ray tracing, path tracing, glTF, HDR, tonemapper, picking, BLAS, TLAS, PBR material, denoising, Cuda, interop, OptiX
+**Tags**: ray tracing, path tracing, glTF, HDR, tonemapper, picking, BLAS, TLAS, PBR material, denoising, CUDA, interop, OptiX
 
 ## [vk_device_generated_cmds](https://github.com/nvpro-samples/vk_device_generated_cmds)
 
@@ -171,7 +171,7 @@ A tutorial that explains step-by-step what is needed to add ray tracing to an ex
 
 ![screenshot-vk_offline](doc/vk_offline.png)
 
-Simple offline application which using Vulkan to render without opening a window.
+Simple offline application which uses Vulkan to render without opening a window.
 
 * Very simple Vulkan offline rendering
 * Create Vulkan context
@@ -184,7 +184,7 @@ Simple offline application which using Vulkan to render without opening a window
 
 ![screenshot-vk_order_independent_transparency](doc/vk_order_independent_transparency.png)
 
-Demonstates seven different techniques for rendering transparent objects without requiring them to be sorted in advance.
+Demonstrates seven different techniques for rendering transparent objects without requiring them to be sorted in advance.
 
 * Shows seven different ways to implement transparency
 * Includes antialiasing techniques and linear colorspace rendering
@@ -199,11 +199,23 @@ Demonstates seven different techniques for rendering transparent objects without
 
 ![screenshot-vk_shaded_gltfscene](doc/vk_shaded_gltfscene.png)
 
-Load a [glTF](https://www.khronos.org/gltf/) scene with materials and textures. Display a HDR image in the background and use it for lighting the scene. It renders in multiple passes, background, scene, then tonemap the result and add UI at the end. Shows how to deal with many objects, many materials and textures. This example will push the material parameters through `push_constant` and uses different descriptor sets to enable the textures to use. It also shows how to read the depth buffer to un-project the mouse coordinate to 3D position to set the camera interest.
+Loads a [glTF](https://www.khronos.org/gltf/) scene with materials and textures. Displays a HDR image in the background and uses it for lighting the scene. It renders in multiple passes, background, scene, then tonemaps the result and adds UI at the end. Shows how to deal with many objects, many materials and textures. This example will push the material parameters through `push_constant` and uses different descriptor sets to enable the textures to use. It also shows how to read the depth buffer to un-project the mouse coordinate to 3D position to set the camera interest.
 
 * Loads `.gltf 2` models
 
 **Tags**: glTF, PBR material, HDR, tonemapper, textures, mipmapping, debugging shader, depth buffer reading, picking, importance sampling, cubemap
+
+## [vk_streamline](https://github.com/nvpro-samples/vk_streamline)
+
+![screenshot-vk_streamline](doc/vk_streamline.png)
+
+Demonstrates integration of [Streamline](https://developer.nvidia.com/rtx/streamline) into a Vulkan-based application and using it to add [NVIDIA Reflex](https://developer.nvidia.com/performance-rendering-tools/reflex), [DLSS Super Resolution, and DLSS Frame Generation](https://developer.nvidia.com/rtx/dlss/get-started).
+
+* Latency optimization using NVIDIA Reflex
+* Upscale and antialias frames using Deep Learning Super-Sampling
+* Target higher frame rates using DLSS Frame Generation
+
+**Tags**: optimization, upscaling, antialiasing, latency, post-process, image processing
 
 ## [vk_timeline_semaphore](https://github.com/nvpro-samples/vk_timeline_semaphore)
 
@@ -228,7 +240,7 @@ Rendering object outlines and details from canvases render with rasterizer or ra
 * FXAA on line buffers
 * Toon effect with shading and [Kuwahara](https://en.wikipedia.org/wiki/Kuwahara_filter) post-effect
 
-**Tags**: silhouette, contour, toon shading, post-process, fxaa
+**Tags**: silhouette, contour, toon shading, post-process, fxaa, antialiasing
 
 ## [vk_video_samples](https://github.com/nvpro-samples/vk_video_samples)
 
@@ -435,6 +447,8 @@ present calls between windows on the same system as well as on distributed
 systems. It can also be used to check if systems are configured to support
 synchronized present through DirectX 12 present barrier. A general overview of
 the interface can be found on the [NVIDIA developer blog](https://developer.nvidia.com/blog/synchronizing-present-calls-between-applications-on-distributed-systems-with-directx-12/).
+
+**Tags:** synchronization
 
 # Other APIs
 

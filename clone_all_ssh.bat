@@ -38,6 +38,7 @@ CALL :folder vk_order_independent_transparency
 CALL :folder vk_raytrace
 CALL :folder vk_raytracing_tutorial_KHR
 CALL :folder vk_shaded_gltfscene
+CALL :folder vk_streamline
 CALL :folder vk_timeline_semaphore
 CALL :folder vk_toon_shader
 CALL :folder vk_video_samples

@@ -51,6 +51,7 @@ folder vk_order_independent_transparency
 folder vk_raytrace
 folder vk_raytracing_tutorial_KHR
 folder vk_shaded_gltfscene
+folder vk_streamline
 folder vk_timeline_semaphore
 folder vk_toon_shader
 folder vk_video_samples
