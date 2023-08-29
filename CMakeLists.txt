@@ -26,7 +26,7 @@ macro(_addFolder _PATH)
           # extract the name from the path
           string( REGEX REPLACE "^.*/([^/]*)$" "\\1" SAMPLE_NAME ${sample} )
           if( (NOT (${SAMPLE_NAME} MATCHES "^__")) 
-          AND (NOT(${SAMPLE_NAME} STREQUAL "build_all")) 
+          AND (NOT(${SAMPLE_NAME} MATCHES "^build_all")) # Avoid infinite recursion if this build_all folder has a suffix
           AND (NOT(${SAMPLE_NAME} STREQUAL "nvpro_core")) 
           AND (NOT(${SAMPLE_NAME} STREQUAL "shared_sources")) # OBSOLETE folder : renamed as nvpro_core. But we still want to avoid it, in case someone left it by mistake
           AND (NOT(${SAMPLE_NAME} STREQUAL "downloaded_resources")) 
