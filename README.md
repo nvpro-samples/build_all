@@ -26,17 +26,17 @@ nvpro-samples
 
 Each sample can be built either individually, or with `build_all/CMakeLists.txt` as single solution. You can also configure the solution for `build_all` to only include a subset of projects with the appropriate `BUILD_sample_name` checkbox in the CMake UI.
 
-All samples must be built for a 64-bit architecture and require C++17. All of these samples support Windows (MSVC 2017 is our minimum compiler), while nearly all support Linux as well.
+All samples must be built for a 64-bit architecture. All samples support Windows (MSVC 2019 is our minimum compiler), while nearly all support Linux as well (GCC 9.4 is our minimum compiler there). If you're using a compiler other than MSVC (Visual Studio), GCC, or Clang, your compiler must support C++17, a few samples require compiler support for basic C++20 features like designated initializers.
 
 ## Linux prerequisites
 
 The samples attempt to pull in third-party dependencies automatically. But there are a few system libraries they depend on. CMake may not pick up all dependencies during the setup phase and compilation will bail out due to missing headers. The following line installs many of the potentially missing system library headers and libraries:
 ```bash
-sudo apt-get install libx11-dev libxcb1-dev libxcb-keysyms1-dev libxcursor-dev libxi-dev libxinerama-dev libxrandr-dev libxxf86vm-dev libvulkan-dev libassimp-dev
+sudo apt-get install libx11-dev libxcb1-dev libxcb-keysyms1-dev libxcursor-dev libxi-dev libxinerama-dev libxrandr-dev libxxf86vm-dev libvulkan-dev libglm-dev libfreeimage-dev
 # not necessary, but recommended
 sudo apt-get install libglfw3-dev
 ```
-Additionally, the samples require a C++17 capable compiler and CMake 3.10 or higher.
+Additionally, the samples require CMake 3.10 or higher.
 
 # Shared Dependencies
 
@@ -456,7 +456,7 @@ the interface can be found on the [NVIDIA developer blog](https://developer.nvid
 
 Shows how to correctly load the [NVML library for GPU information](https://developer.nvidia.com/nvidia-management-library-nvml), and to robustly check
 using NVML's API if a GPU is an Enterprise/Quadro GPU. (This works even when the GPU,
-such as the RTX A6000, doesn't have "Quadro" in its name.
+such as the RTX A6000, doesn't have "Quadro" in its name.)
 
 * nvmlInit
 * nvmlDeviceGetCount
