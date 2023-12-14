@@ -167,6 +167,23 @@ A tutorial that explains step-by-step what is needed to add ray tracing to an ex
 
 **Tags**: ray tracing, OBJ, tonemapper, BLAS, TLAS
 
+## [vk_raytrace_displacement](https://github.com/nvpro-samples/vk_raytrace_displacement)
+
+![screenshot-vk_raytrace](doc/vk_raytrace_displacement.png)
+
+Demonstrates the use of the `heightmap_rtx` library to raytrace dynamically
+displaced geometry --- an animated shallow water simulation. `heightmap_rtx` is
+a small Vulkan library to displace raytraced triangles with a heightmap. It uses
+[NVIDIA Micro-Mesh](https://developer.nvidia.com/rtx/ray-tracing/micro-mesh)
+internally. The sample rebuilds the acceleration structure each frame, but can
+update the displacement by re-submitting a static command buffer. Shading
+includes reflection and refraction.
+
+* Animated raytracing
+* VK_NV_displacement_micromap
+
+**Tags**: ray tracing, animation, shallow water
+
 ## [vk_offline](https://github.com/nvpro-samples/vk_offline)
 
 ![screenshot-vk_offline](doc/vk_offline.png)

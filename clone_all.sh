@@ -49,6 +49,7 @@ folder vk_mini_samples
 folder vk_offline
 folder vk_order_independent_transparency
 folder vk_raytrace
+folder vk_raytrace_displacement
 folder vk_raytracing_tutorial_KHR
 folder vk_shaded_gltfscene
 folder vk_timeline_semaphore

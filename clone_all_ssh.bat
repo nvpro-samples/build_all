@@ -36,6 +36,7 @@ CALL :folder vk_mini_samples
 CALL :folder vk_offline
 CALL :folder vk_order_independent_transparency
 CALL :folder vk_raytrace
+CALL :folder vk_raytrace_displacement
 CALL :folder vk_raytracing_tutorial_KHR
 CALL :folder vk_shaded_gltfscene
 CALL :folder vk_streamline
