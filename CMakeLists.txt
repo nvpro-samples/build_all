@@ -15,6 +15,7 @@ if(UNIX)
   SET(BUILD_dx12_present_barrier OFF)
   SET(BUILD_gl_render_vk_direct_display OFF)
   SET(BUILD_gl_render_vk_ddisplay OFF)
+  SET(BUILD_vk_ddisplay OFF)
   SET(BUILD_vk_streamline OFF)
 endif(UNIX)
 

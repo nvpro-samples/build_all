@@ -22,10 +22,12 @@ CALL :folder gl_vk_raytrace_interop
 CALL :folder gl_vk_simple_interop
 CALL :folder gl_vk_supersampled
 CALL :folder gl_vk_threaded_cadscene
+CALL :folder gl_vrs
 CALL :folder nvml_enterprise_gpu_check
 CALL :folder nvtt_samples
 CALL :folder vk_async_resources
 CALL :folder vk_compute_mipmaps
+CALL :folder vk_ddisplay
 CALL :folder vk_denoise
 CALL :folder vk_device_generated_cmds
 CALL :folder vk_idbuffer_rasterization

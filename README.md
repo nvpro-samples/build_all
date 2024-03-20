@@ -66,6 +66,14 @@ Demonstrates a customizable cache-aware mipmap generation algorithm using comput
 
 **Tags**: mipmapping, image processing, compute shader, library, subgroups, procedural
 
+## [vk_ddisplay](https://github.com/nvpro-samples/vk_ddisplay)
+
+![A photo of a Vulkan app displaying many colored toruses tiled on 4 displays.](doc/vk_ddisplay.jpg)
+
+Demonstrates multi-GPU rendering and presenting to *ddisplays* (direct displays) — displays that are not part of the Windows desktop, and of which an application takes complete control.
+
+**Tags**: ddisplay, NVIDIA Mosaic
+
 ## [vk_denoise](https://github.com/nvpro-samples/vk_denoise)
 
 ![screenshot-vk_denoise](doc/vk_denoise.png)
@@ -368,7 +376,7 @@ by the OpenGL rasterizer.
 * VK_KHR_external_semaphore
 * VK_KHR_external_fence
 
-## [gl_render_vk_direct_display](https://github.com/nvpro-samples/gl_render_vk_direct_display)
+## [gl_render_vk_ddisplay](https://github.com/nvpro-samples/gl_render_vk_ddisplay)
 
 ![screenshot-gl_render_vk_direct_display](doc/gl_render_vk_direct_display.png)
 
@@ -380,6 +388,8 @@ Direct Display device.
 * VK_KHR_display
 * VK_KHR_external_memory
 * VK_KHR_external_semaphore
+
+**Tags**: ddisplay, interop
 
 # OpenGL Samples
 
@@ -396,6 +406,33 @@ CPU bottlenecks due to lots of low-complexity drawcalls.
 * GL_NV_vertex_buffer_unified_memory
 * GL_NV_uniform_buffer_unified_memory
 
+## [gl_commandlist_basic](https://github.com/nvpro-samples/gl_commandlist_basic)
+
+![screenshot-gl_commandlist_basic](doc/gl_commandlist_basic.jpg)
+
+Basic sample for NV_command_list
+
+* GL_NV_command_list
+
+## [gl_dynamic_lod](https://github.com/nvpro-samples/gl_dynamic_lod)
+
+![screenshot-gl_commandlist_basic](doc/gl_dynamic_lod.jpg)
+
+GPU classifies how to render millions of particles. Close/large particles
+use tessellation, medium sized particles use an optimized instancing technique and distant
+particles are rendered as points. No CPU readbacks needed.
+
+* GL_ARB_compute_shader
+* GL_ARB_multi_draw_indirect
+
+## [gl_multicast](https://github.com/nvpro-samples/gl_multicast)
+
+Basic sample showcasing multicast capabilities, where one GL stream is very
+efficiently sent to multiple GPUs. Typical use-case is for example VR SLI, where
+each GPU renders a different eye.
+
+* GL_NV_gpu_multicast
+
 ## [gl_occlusion_culling](https://github.com/nvpro-samples/gl_occlusion_culling)
 
 ![screenshot-gl_occlusion_culling](doc/gl_occlusion_culling.png)
@@ -410,33 +447,6 @@ readbacks.
 * GL_NV_command_list
 * GL_NV_representative_fragment_test
 
-## [gl_ssao](https://github.com/nvpro-samples/gl_ssao)
-
-![screenshot-gl_ssao](doc/gl_ssao.jpg)
-
-Optimized screen-space ambient occlusion, cache-aware HBAO
-
-* GL_NV_geometry_shader_passthrough
-
-## [gl_dynamic_lod](https://github.com/nvpro-samples/gl_dynamic_lod)
-
-![screenshot-gl_commandlist_basic](doc/gl_dynamic_lod.jpg)
-
-GPU classifies how to render millions of particles. Close/large particles
-use tessellation, medium sized particles use an optimized instancing technique and distant
-particles are rendered as points. No CPU readbacks needed.
-
-* GL_ARB_compute_shader
-* GL_ARB_multi_draw_indirect
-
-## [gl_commandlist_basic](https://github.com/nvpro-samples/gl_commandlist_basic)
-
-![screenshot-gl_commandlist_basic](doc/gl_commandlist_basic.jpg)
-
-Basic sample for NV_command_list
-
-* GL_NV_command_list
-
 ## [gl_path_rendering_CMYK](https://github.com/nvpro-samples/gl_path_rendering_CMYK)
 
 ![screenshot-gl_path_rendering_cmyk](doc/gl_path_rendering_cmyk.jpg)
@@ -445,13 +455,23 @@ Example of how to use path rendering; and how to use it with CMYK (using multi-r
 
 * GL_NV_path_rendering
 
-## [gl_multicast](https://github.com/nvpro-samples/gl_multicast)
+## [gl_ssao](https://github.com/nvpro-samples/gl_ssao)
 
-Basic sample showcasing multicast capabilities, where one GL stream is very
-efficiently sent to multiple GPUs. Typical use-case is for example VR SLI, where
-each GPU renders a different eye.
+![screenshot-gl_ssao](doc/gl_ssao.jpg)
 
-* GL_NV_gpu_multicast
+Optimized screen-space ambient occlusion, cache-aware HBAO
+
+* GL_NV_geometry_shader_passthrough
+
+## [gl_vrs](https://github.com/nvpro-samples/gl_vrs)
+
+![Two screenshots of the gl_vrs sample side by side. On the left, the sample renders 1000 tori. The shading rate for the blue tori decreases as the distance to the center increases; in the periphery, they are not rendered at all. The green tori, on the other hand, are always rendered at full (1x1) shading rate. On the right, the sample shows the shading rate per pixel.](doc/gl_vrs.png)
+
+Demonstrates Variable Rate Shading — which allows hardware to shade primitives at a different frequency than the rasterization frequency — in OpenGL. The user can pick various rates, including shading rates that vary over the image. This is especially useful for optimizations like foveated rendering in VR.
+
+* GL_NV_shading_rate_image
+
+**Tags**: optimization
 
 # DirectX 12 Samples
 

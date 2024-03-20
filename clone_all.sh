@@ -35,10 +35,12 @@ folder gl_vk_raytrace_interop
 folder gl_vk_simple_interop
 folder gl_vk_supersampled
 folder gl_vk_threaded_cadscene
+folder gl_vrs
 folder nvml_enterprise_gpu_check
 folder nvtt_samples
 folder vk_async_resources
 folder vk_compute_mipmaps
+folder vk_ddisplay
 folder vk_denoise
 folder vk_device_generated_cmds
 folder vk_idbuffer_rasterization
