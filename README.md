@@ -425,6 +425,22 @@ particles are rendered as points. No CPU readbacks needed.
 * GL_ARB_compute_shader
 * GL_ARB_multi_draw_indirect
 
+## [gl_multi_view_rendering](https://github.com/nvpro-samples/gl_multi_view_rendering)
+
+![A screenshot of the gl_multi_view_rendering sample. A number of tori are rendered from four different perspectives.](doc/gl_multi_view_rendering.png)
+
+Shows how to use Single Pass Stereo and Multi-View Rendering. These draw
+multiple views at once, reducing CPU overhead.
+
+* GL_NV_stereo_view_rendering
+* OVR_multiview
+* OVR_multiview2
+* EXT_multiview_timer_query
+* EXT_multiview_texture_multisample
+* EXT_multiview_tessellation_geometry_shader
+
+**Tags**: optimization, virtual reality
+
 ## [gl_multicast](https://github.com/nvpro-samples/gl_multicast)
 
 Basic sample showcasing multicast capabilities, where one GL stream is very

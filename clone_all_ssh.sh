@@ -23,6 +23,7 @@ folder gl_cadscene_rendertechniques
 folder gl_commandlist_basic
 folder gl_cuda_simple_interop
 folder gl_dynamic_lod
+folder gl_multi_view_rendering
 folder gl_multicast
 folder gl_occlusion_culling
 folder gl_path_rendering_CMYK

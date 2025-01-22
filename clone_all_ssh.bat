@@ -10,6 +10,7 @@ CALL :folder gl_cadscene_rendertechniques
 CALL :folder gl_commandlist_basic
 CALL :folder gl_cuda_simple_interop
 CALL :folder gl_dynamic_lod
+CALL :folder gl_multi_view_rendering
 CALL :folder gl_multicast
 CALL :folder gl_occlusion_culling
 CALL :folder gl_path_rendering_CMYK
