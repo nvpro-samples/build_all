@@ -47,6 +47,20 @@ Additionally, the samples require CMake 3.10 or higher.
 
 These samples are "pure" Vulkan samples and use its WSI system to create the window swapchain.
 
+## [vk_animated_clusters](https://github.com/nvpro-samples/vk_animated_clusters)
+
+![A large number of Stanford Bunnies. Each one independently deforms, changing the position of every triangle, every frame.](doc/vk_animated_clusters.jpg)
+
+This sample introduces clusters and shows how to use the
+`VK_NV_cluster_acceleration_structure` extension to ray trace massive,
+animated scenes. It also shows how clusterized models can be efficiently
+rasterized using mesh shaders. With RTX Mega Geometry, acceleration structures
+for animated objects can be built faster than using previous APIs.
+
+* VK_NV_cluster_acceleration_structure
+
+**Tags**: ray tracing, clusters, mesh shaders, animation, glTF, CLAS, RTX Mega Geometry
+
 ## [vk_async_resources](https://github.com/nvpro-samples/vk_async_resources)
 
 ![screenshot-vk_async_resources](doc/vk_async_resources.png)
@@ -122,6 +136,20 @@ Demonstrates how to use the VK_NV_inherited_viewport_scissor extension to redraw
 
 **Tags**: optimization, indirect draw, instancing
 
+## [vk_lod_clusters](https://github.com/nvpro-samples/vk_lod_clusters)
+
+![A large number of Stanford Bunnies. Although the level of detail varies across bunnies and across groups per bunny, the rendering is seamless.](doc/vk_lod_clusters.jpg)
+
+This sample showcases a continuous level of detail (LoD) technique using
+clusters that leverages `VK_NV_cluster_acceleration_structure` for ray tracing.
+It can also rasterize the content using `VK_NV_mesh_shader.
+Furthermore, the sample implements an on-demand streaming system from RAM to
+VRAM for the geometry.
+
+* VK_NV_cluster_acceleration_structure
+
+**Tags**: ray tracing, clusters, mesh shaders, glTF, CLAS, RTX Mega Geometry
+
 ## [vk_memory_decompression](https://github.com/nvpro-samples/vk_memory_decompression)
 
 ![screenshot-vk_memory_decompression](doc/vk_memory_decompression.png)
@@ -142,6 +170,19 @@ A beginner-friendly Vulkan path tracing tutorial in under 300 lines of C++. Inte
 * VK_KHR_ray_tracing_pipeline
 
 **Tags**: ray tracing, path tracing, ray queries, ray tracing pipelines, compute shaders, debug printf, BLAS, TLAS, OBJ, beginner
+
+## [vk_partitioned_tlas](https://github.com/nvpro-samples/vk_partitioned_tlas)
+
+![Over 100,000 dominoes tumble under arches and next to icosahedra. The world is divided into tiles; tiles where dominoes tumble -- where parts of the partitioned TLAS are being updated -- are in brighter colors.](doc/vk_partitioned_tlas.jpg)
+
+Frequently, only parts of a scene change between frames. The new
+`VK_NV_partitioned_acceleration_structure` extension allows apps to rebuild parts of a TLAS when
+part of a scene changes, rather than the whole thing. This sample showcases this
+extension using a simple simulation of more than 100,000 physics objects.
+
+* VK_NV_partitioned_acceleration_structure
+
+**Tags**: ray tracing, TLAS, RTX Mega Geometry, toon shading
 
 ## [vk_raytrace](https://github.com/nvpro-samples/vk_raytrace)
 
@@ -174,23 +215,6 @@ A tutorial that explains step-by-step what is needed to add ray tracing to an ex
 * Recursive reflection vs iterative reflection
 
 **Tags**: ray tracing, OBJ, tonemapper, BLAS, TLAS
-
-## [vk_raytrace_displacement](https://github.com/nvpro-samples/vk_raytrace_displacement)
-
-![screenshot-vk_raytrace](doc/vk_raytrace_displacement.png)
-
-Demonstrates the use of the `heightmap_rtx` library to raytrace dynamically
-displaced geometry --- an animated shallow water simulation. `heightmap_rtx` is
-a small Vulkan library to displace raytraced triangles with a heightmap. It uses
-[NVIDIA Micro-Mesh](https://developer.nvidia.com/rtx/ray-tracing/micro-mesh)
-internally. The sample rebuilds the acceleration structure each frame, but can
-update the displacement by re-submitting a static command buffer. Shading
-includes reflection and refraction.
-
-* Animated raytracing
-* VK_NV_displacement_micromap
-
-**Tags**: ray tracing, animation, shallow water
 
 ## [vk_offline](https://github.com/nvpro-samples/vk_offline)
 
@@ -241,6 +265,19 @@ Demonstrates integration of [Streamline](https://developer.nvidia.com/rtx/stream
 * Target higher frame rates using DLSS Frame Generation
 
 **Tags**: optimization, upscaling, antialiasing, latency, post-process, image processing
+
+## [vk_tessellated_clusters](https://github.com/nvpro-samples/vk_tessellated_clusters)
+
+![A close-up of a tessellated brick wall. Its surface is divided into base triangles. Tessellated base triangles are split into clusters of many smaller triangles every frame.](doc/vk_tessellated_clusters.jpg)
+
+This sample showcases how to use clusters and
+`VK_NV_cluster_acceleration_structure` to path trace dynamic tessellation with
+displacement, which requires per-frame generation of geometry.
+It can also render the content using `VK_NV_mesh_shader`.
+
+* VK_NV_cluster_acceleration_structure
+
+**Tags**: ray tracing, clusters, mesh shaders, glTF, CLAS, RTX Mega Geometry
 
 ## [vk_timeline_semaphore](https://github.com/nvpro-samples/vk_timeline_semaphore)
 
@@ -297,19 +334,6 @@ sets of samplers and textures.
 These samples use the `gl_vk_` prefix and showcase Vulkan and OpenGL techniques within
 the same application (`gl_vk_sample_name.exe`) or just Vulkan alone (`vk_sample_name.exe`). If available, using the `BUILD_gl_vk_sample_name_VULKAN_ONLY` option, you can omit building the combined executable file. The `VULKAN_ONLY` mode uses Vulkan's WSI system to create the swapchain, the combined executable uses `GL_NV_draw_vulkan_image`.
 
-## [gl_vk_threaded_cadscene](https://github.com/nvpro-samples/gl_vk_meshlet_cadscene)
-
-![screenshot-gl_vk_threaded_cadscene](doc/gl_vk_threaded_cadscene.png)
-
-OpenGL and Vulkan comparison on rendering a CAD scene using various techniques. Stresses
-CPU bottlenecks due to the scene having lots of tiny drawcalls. Also touches upon different ways how to provide per-draw data in Vulkan, as well as how to create drawcalls on multiple threads in both OpenGL and Vulkan.
-
-* Loads `.csf` and `.gltf 2` models
-* GL_NV_draw_vulkan_image (not used in `VULKAN_ONLY`)
-* GL_NV_command_list
-* GL_NV_vertex_buffer_unified_memory
-* GL_NV_uniform_buffer_unified_memory
-
 ## [gl_vk_meshlet_cadscene](https://github.com/nvpro-samples/gl_vk_threaded_cadscene)
 
 ![screenshot-gl_vk_meshlet_cadscene](doc/gl_vk_meshlet_cadscene.png)
@@ -320,31 +344,6 @@ This OpenGL/Vulkan sample illustrates the use of [mesh shaders](https://devblogs
 * GL_NV_draw_vulkan_image (not used in `VULKAN_ONLY`)
 * GL_NV_mesh_shader
 * VK_NV_mesh_shader
-
-## [gl_vk_chopper](https://github.com/nvpro-samples/gl_vk_chopper)
-
-![screenshot-gl_vk_chopper](doc/gl_vk_chopper.png)
-
-Renders an articulated scene with animated and textured models.
-
-* GL_NV_draw_vulkan_image
-
-## [gl_vk_bk3dthreaded](https://github.com/nvpro-samples/gl_vk_bk3dthreaded)
-
-![screenshot-gl_vk_bk3dthreaded](doc/gl_vk_bk3dthreaded.jpg)
-
-Vulkan sample rendering 3D with worker-threads
-
-* GL_NV_draw_vulkan_image
-
-## [gl_vk_supersampled](https://github.com/nvpro-samples/gl_vk_supersampled)
-
-![screenshot-gl_vk_supersampled](doc/gl_vk_supersampled.jpg)
-
-Vulkan sample showing a high quality super-sampled rendering
-
-* GL_NV_draw_vulkan_image
-
 
 ## [gl_vk_simple_interop](https://github.com/nvpro-samples/gl_vk_simple_interop)
 

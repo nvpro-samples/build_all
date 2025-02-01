@@ -15,16 +15,13 @@ CALL :folder gl_occlusion_culling
 CALL :folder gl_path_rendering_CMYK
 CALL :folder gl_render_vk_direct_display
 CALL :folder gl_ssao
-CALL :folder gl_vk_bk3dthreaded
-CALL :folder gl_vk_chopper
 CALL :folder gl_vk_meshlet_cadscene
 CALL :folder gl_vk_raytrace_interop
 CALL :folder gl_vk_simple_interop
-CALL :folder gl_vk_supersampled
-CALL :folder gl_vk_threaded_cadscene
 CALL :folder gl_vrs
 CALL :folder nvml_enterprise_gpu_check
 CALL :folder nvtt_samples
+CALL :folder vk_animated_clusters
 CALL :folder vk_async_resources
 CALL :folder vk_compute_mipmaps
 CALL :folder vk_ddisplay
@@ -32,16 +29,18 @@ CALL :folder vk_denoise
 CALL :folder vk_device_generated_cmds
 CALL :folder vk_idbuffer_rasterization
 CALL :folder vk_inherited_viewport
+CALL :folder vk_lod_clusters
 CALL :folder vk_memory_decompression
 CALL :folder vk_mini_path_tracer
 CALL :folder vk_mini_samples
 CALL :folder vk_offline
 CALL :folder vk_order_independent_transparency
+CALL :fodler vk_partitioned_tlas
 CALL :folder vk_raytrace
-CALL :folder vk_raytrace_displacement
 CALL :folder vk_raytracing_tutorial_KHR
 CALL :folder vk_shaded_gltfscene
 CALL :folder vk_streamline
+CALL :folder vk_tessellated_clusters
 CALL :folder vk_timeline_semaphore
 CALL :folder vk_toon_shader
 CALL :folder vk_video_samples
@@ -51,12 +50,11 @@ EXIT /B %ERRORLEVEL%
 
 :: a function to write to a log file and write to stdout
 :folder
+echo "--------------------------------------------"
 IF EXIST %* GOTO NOWINDIR
-	echo "--------------------------------------------"
 	git clone https://github.com/nvpro-samples/%*.git --recursive
 	GOTO DONE
 :NOWINDIR
-	echo "--------------------------------------------"
 	echo %* already there... pulling
 	pushd %*
 	git pull
