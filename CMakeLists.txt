@@ -19,6 +19,12 @@ if(UNIX)
   SET(BUILD_vk_streamline OFF)
 endif(UNIX)
 
+# vk_video_samples has a manual build process, since it uses FFmpeg
+# shared libraries that have to be manually downloaded. For that reason, we turn
+# it off by default. To build vk_video_samples, please see
+# https://github.com/nvpro-samples/vk_video_samples/blob/main/BUILD.md.
+set(BUILD_vk_video_samples OFF)
+
 macro(_addFolder _PATH)
   FILE (GLOB samples "${_PATH}/*")
   FOREACH( sample ${samples} )
@@ -26,7 +32,7 @@ macro(_addFolder _PATH)
         if( EXISTS ${sample}/CMakeLists.txt )
           # extract the name from the path
           string( REGEX REPLACE "^.*/([^/]*)$" "\\1" SAMPLE_NAME ${sample} )
-          if( (NOT (${SAMPLE_NAME} MATCHES "^__")) 
+          if( (NOT(${SAMPLE_NAME} MATCHES "^__"))
           AND (NOT(${SAMPLE_NAME} MATCHES "^build_all")) # Avoid infinite recursion if this build_all folder has a suffix
           AND (NOT(${SAMPLE_NAME} STREQUAL "nvpro_core")) 
           AND (NOT(${SAMPLE_NAME} STREQUAL "shared_sources")) # OBSOLETE folder : renamed as nvpro_core. But we still want to avoid it, in case someone left it by mistake
