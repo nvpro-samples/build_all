@@ -37,6 +37,8 @@ macro(_addFolder _PATH)
           AND (NOT(${SAMPLE_NAME} STREQUAL "nvpro_core")) 
           AND (NOT(${SAMPLE_NAME} STREQUAL "shared_sources")) # OBSOLETE folder : renamed as nvpro_core. But we still want to avoid it, in case someone left it by mistake
           AND (NOT(${SAMPLE_NAME} STREQUAL "downloaded_resources")) 
+          AND (NOT(${SAMPLE_NAME} STREQUAL "vk_minimal_latest"))
+          AND (NOT(${SAMPLE_NAME} STREQUAL "vk_video_samples"))
           AND (NOT (BUILD_${SAMPLE_NAME} STREQUAL "OFF")))
               # build the option to include the project or not
               set( "BUILD_${SAMPLE_NAME}" TRUE CACHE BOOL "Include the ${SAMPLE_NAME} sample" )
