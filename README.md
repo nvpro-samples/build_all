@@ -106,7 +106,7 @@ Additionally, the samples require CMake 3.10 or higher.
 
 ## [vk_mini_samples](https://github.com/nvpro-samples/vk_mini_samples)
 
-![screenshot-vk_mini_samples](doc/all-mini-pano.png)
+![screenshot-vk_mini_samples](doc/all-mini-pano.jpg)
 
 This repository contains numerous examples demonstrating various aspects of Vulkan, debugging techniques, and integration with other NVIDIA tools:
 
@@ -221,7 +221,7 @@ A tutorial that explains step-by-step what is needed to add ray tracing to an ex
 
 ## [vk_mini_path_tracer](https://github.com/nvpro-samples/vk_mini_path_tracer)
 
-![screenshot-vk_mini_path_tracer](doc/vk_mini_path_tracer.png)
+![screenshot-vk_mini_path_tracer](doc/vk_mini_path_tracer.jpg)
 
 A beginner-friendly Vulkan path tracing tutorial in under 300 lines of C++. Intended as both an introduction to Vulkan, and as an introduction to computer graphics through ray tracing. Includes tips and tricks along the way, and extra chapters show how to extend the path tracer, implement production techniques, and use a performance analysis tool. Dovetails into vk_raytracing_tutorial_KHR.
 
@@ -234,7 +234,7 @@ A beginner-friendly Vulkan path tracing tutorial in under 300 lines of C++. Inte
 
 
 ## [vk_denoise_nrd](https://github.com/nvpro-samples/vk_denoise_nrd)
-![](https://github.com/nvpro-samples/vk_denoise_nrd/raw/main/docs/nrd_denoiser.png)
+![A screenshot of the vk_denoise_nrd sample. On the left, a path-traced Cornell box is denoised in real time using NRD. On the right, there are settings, as well as views of the various textures NRD uses.](doc/vk_denoise_nrd.jpg)
 
 This example demonstrates NRD, "NVIDIA Real-Time Denoisers", in a simple path tracer rendering a glTF scene. NRD is a spatio-temporal post-processing library that removes noise from Monte-Carlo based path tracers. NRD is not just a single denoiser, in fact it is a collection of specialized denoisers for specific kinds of data, like diffuse and specular images, ambient occlusion, and shadow data.
 
@@ -243,7 +243,7 @@ This example demonstrates NRD, "NVIDIA Real-Time Denoisers", in a simple path tr
 
 ## [vk_optix_denoise](https://github.com/nvpro-samples/vk_denoise)
 
-![screenshot-vk_denoise](doc/vk_denoise.png)
+![screenshot-vk_denoise](doc/vk_denoise.jpg)
 
 This example is a simple version of [vk_gltf_renderer](https://github.com/nvpro-samples/vk_gltf_renderer). After a few iterations, the image will be denoised using the [OptiX denoiser](https://developer.nvidia.com/optix-denoiser). To achieve this, we use interop between CUDA and Vulkan. Vulkan images are converted to CUDA buffers and converted back after being denoised. This pass is inserted between other rendering passes.
 
@@ -259,7 +259,7 @@ This example is a simple version of [vk_gltf_renderer](https://github.com/nvpro-
 
 ## [vk_gltf_renderer](https://github.com/nvpro-samples/vk_gltf_renderer)
 
-![screenshot-vk_gltf_renderer](doc/vk_gltf_renderer.png)
+![screenshot-vk_gltf_renderer](doc/vk_gltf_renderer.jpg)
 
 A comprehensive Vulkan-based glTF renderer featuring a fully-featured PBR path tracer with a simpler raster fallback. The path tracer provides complete support for the glTF 2.0 specification with advanced rendering techniques including image-based lighting (IBL), importance sampling, reflections, transparency, indirect illumination, and depth-of-field effects simulating realistic camera lens behavior.
 
@@ -575,11 +575,15 @@ multiple views at once, reducing CPU overhead.
 
 ## [gl_multicast](https://github.com/nvpro-samples/gl_multicast)
 
+![A screenshot of the gl_multicast sample. A set of tori is rendered twice, once by each GPU in an SLI system, with different colors.](doc/gl_multicast.png)
+
 Basic sample showcasing multicast capabilities, where one GL stream is very
 efficiently sent to multiple GPUs. Typical use-case is for example VR SLI, where
 each GPU renders a different eye.
 
 * GL_NV_gpu_multicast
+
+**Tags**: optimization, virtual reality
 
 ## [gl_occlusion_culling](https://github.com/nvpro-samples/gl_occlusion_culling)
 
@@ -597,7 +601,7 @@ readbacks.
 
 ## [gl_path_rendering_CMYK](https://github.com/nvpro-samples/gl_path_rendering_CMYK)
 
-![screenshot-gl_path_rendering_cmyk](doc/gl_path_rendering_cmyk.jpg)
+![screenshot-gl_path_rendering_cmyk](doc/gl_path_rendering_cmyk.png)
 
 Example of how to use path rendering; and how to use it with CMYK (using multi-render target)
 
@@ -632,7 +636,7 @@ Sample showing OpenGL and CUDA interop. Explain how to mix CUDA as compute backe
 
 
 ## [vk_gaussian_splatting](https://github.com/nvpro-samples/vk_gaussian_splatting)
-![](doc/vk_gaussian_splatting.png)
+![](doc/vk_gaussian_splatting.jpg)
 
 This project explores real-time visualization of 3D Gaussian Splatting (3DGS) with Vulkan, comparing rasterization-based techniques using mesh and vertex shaders, along with GPU and CPU sorting strategies.
 
