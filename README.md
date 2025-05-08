@@ -26,17 +26,19 @@ nvpro-samples
 
 Each sample can be built either individually, or with `build_all/CMakeLists.txt` as single solution. You can also configure the solution for `build_all` to only include a subset of projects with the appropriate `BUILD_sample_name` checkbox in the CMake UI.
 
-All samples must be built for a 64-bit architecture. All samples support Windows (MSVC 2019 is our minimum compiler), while nearly all support Linux as well (GCC 9.4 is our minimum compiler there). If you're using a compiler other than MSVC (Visual Studio), GCC, or Clang, your compiler must support C++20, a few samples require compiler support for basic C++20 features like designated initializers.
+All samples must be built for a 64-bit architecture. All samples support Windows (MSVC 2019 is our minimum compiler), while nearly all support Linux as well (GCC 10.5 is our minimum compiler there). If you're using a compiler other than MSVC (Visual Studio), GCC, or Clang, your compiler must allow specifying C++20, and provide support for some basic C++20 features such as designated initializers.
 
 ## Linux prerequisites
 
 The samples attempt to pull in third-party dependencies automatically. But there are a few system libraries they depend on. CMake may not pick up all dependencies during the setup phase and compilation will bail out due to missing headers. The following line installs many of the potentially missing system library headers and libraries:
+
 ```bash
-sudo apt-get install libx11-dev libxcb1-dev libxcb-keysyms1-dev libxcursor-dev libxi-dev libxinerama-dev libxrandr-dev libxxf86vm-dev libvulkan-dev libglm-dev libfreeimage-dev
-# not necessary, but recommended
-sudo apt-get install libglfw3-dev
+sudo apt-get install libx11-dev libxcb1-dev libxcb-keysyms1-dev libxcursor-dev libxi-dev libxinerama-dev libxrandr-dev libxxf86vm-dev libtbb-dev
 ```
-Additionally, the samples require CMake 3.10 or higher.
+
+Installing the latest Vulkan SDK is recommended. Please follow the instructions on https://vulkan.lunarg.com/doc/sdk/latest/linux/getting_started.html under "Download the SDK" and "Install the SDK".
+
+Additionally, the samples require CMake 3.22 or higher.
 
 # Shared Dependencies
 
