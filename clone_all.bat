@@ -51,6 +51,7 @@ CALL :folder vk_tessellated_clusters
 CALL :folder vk_timeline_semaphore
 CALL :folder vk_toon_shader
 CALL :folder vk_video_samples
+CALL :folder xr_multi_gpu
 
 :: force execution to quit at the end of the "main" logic
 EXIT /B %ERRORLEVEL%

@@ -65,6 +65,7 @@ folder vk_tessellated_clusters
 folder vk_timeline_semaphore
 folder vk_toon_shader
 folder vk_video_samples
+folder xr_multi_gpu
 
 exit 0
 

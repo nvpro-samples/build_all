@@ -76,6 +76,7 @@ Additionally, the samples require CMake 3.22 or higher.
   - [vk_streamline](#vk_streamline)
   - [vk_timeline_semaphore](#vk_timeline_semaphore)
   - [vk_video_samples](#vk_video_samples)
+  - [xr_multi_gpu](#xr_multi_gpu)
   - [glsl_indexed_types_generator](#glsl_indexed_types_generator)
 - [OpenGL / Vulkan Samples](#opengl--vulkan-samples)
   - [gl_vk_meshlet_cadscene](#gl_vk_meshlet_cadscene)
@@ -451,6 +452,17 @@ Encodes and decodes video with an all-Vulkan end-to-end pipeline using the Vulka
 
 **Tags**: video, image processing
 
+
+## [xr_multi_gpu](https://github.com/nvpro-samples/xr_multi_gpu)
+
+![Two views of a scene, one from each eye, are presented side-by-side.](doc/xr_multi_gpu.jpg)
+
+Shows how to distribute rendering of a scene across multiple GPUs using NVIDIA SLI, and how to present to an OpenXR runtime or a standard window.
+
+* Per-eye and sub-image parallelization
+* Asynchronous image transfers
+
+**Tags**: optimization, virtual reality, multi-GPU, synchronization
 
 ## [glsl_indexed_types_generator](https://github.com/nvpro-samples/glsl_indexed_types_generator)
 

@@ -17,6 +17,7 @@ if(UNIX)
   SET(BUILD_gl_render_vk_ddisplay OFF)
   SET(BUILD_vk_ddisplay OFF)
   SET(BUILD_vk_streamline OFF)
+  SET(BUILD_xr_multi_gpu OFF)
 endif(UNIX)
 
 # vk_video_samples has a manual build process, since it uses FFmpeg
