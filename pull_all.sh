@@ -1,13 +1,11 @@
 #!/bin/bash
-# walk through downloaded samples and pull for latest changes
+
+git -C nvpro_core pull --recurse-submodules
+git -C nvpro_core2 pull --recurse-submodules
+
+# Walks through downloaded samples and pulls latest changes
 # Note: doesn't take care of possible conflicts
-pushd ..
-for dir in *; do
-   for file in "$dir"; do
-     pushd $file
-     echo git pull --recurse-submodules for $file
-     git pull --recurse-submodules
-     popd
-   done
+for dir in samples/*; do
+  echo git -C $dir pull --recurse-submodules
+  git -C $dir pull --recurse-submodules
 done
-popd

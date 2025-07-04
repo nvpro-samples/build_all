@@ -5,26 +5,29 @@
 The `build_all` repository is optional and contains scripts that allow you to synchronize and build all the samples that you have cloned using a single solution.
 
 * CMakeLists.txt: the CMake file that will walk through samples to include them in the project
+* legacy/CMakeLists.txt: CMake file that only builds samples not yet ported to nvpro_core2
 * README.md: this file
 * LICENSE: the license used for all nvpro-samples
-* batch/script files: allows to easily clone/pull all existing samples
+* batch/script files: allows to easily clone/pull/build all samples
 
 Running the `clone_all` batch/script will create the following directory structure:
 
-
-
-| :warning: |**Make sure to place the build_all repository into its own separate directory**! |
-| --- | --- |
-| | Use, for instance, 'nvpro-samples'. This prevents the clone_all script from polluting, for example, your home directory. 'clone_all' will place all individual nvpro-samples right next to build_all. |
-
-```bash
-nvpro-samples
-    build_all
-    nvpro_core
-    ... (all repositories specified in the script)
+```output
+📂 build_all
+   📂 nvpro_core
+   📂 nvpro_core2
+   📂 samples
+      📂 ... (all repositories specified in the script)
 ```
 
-Each sample can be built either individually, or with `build_all/CMakeLists.txt` as single solution. You can also configure the solution for `build_all` to only include a subset of projects with the appropriate `BUILD_sample_name` checkbox in the CMake UI.
+Each sample can be built either individually, using `build_all.bat` to automate the process, or with `build_all/CMakeLists.txt` to build them all as a single solution.
+* To build a single sample: `cd` into the sample's folder, then run `cmake -S . -B cmake_build` followed by `cmake --build cmake_build --parallel`.
+* To build all the samples by themselves: Run `build_all` (.bat or .sh, depending on your platform)
+* To build all the samples in a single solution: Run `cmake -S . -B cmake_build` in the build_all folder, followed by `cmake --build cmake_build --parallel`.
+* To build only the samples that haven't been ported to nvpro_core2 yet: Run `cmake -S legacy -B cmake_build` followed by `cmake --build cmake_build --parallel`.
+* To build only "version 2" samples: Run `cmake -S . -B cmake_build -DNVPRO_SAMPLES_NO_V1_SAMPLES=ON` followed by `cmake --build cmake_build --parallel`.
+
+You can also configure the solution for `build_all` to only include a subset of projects with the appropriate `BUILD_sample_name` checkbox in the CMake UI. `build_all/legacy/CMakeLists.txt` will build only the samples not yet ported to nvpro_core2.
 
 All samples must be built for a 64-bit architecture. All samples support Windows (MSVC 2019 is our minimum compiler), while nearly all support Linux as well (GCC 10.5 is our minimum compiler there). If you're using a compiler other than MSVC (Visual Studio), GCC, or Clang, your compiler must allow specifying C++20, and provide support for some basic C++20 features such as designated initializers.
 
@@ -43,6 +46,8 @@ Additionally, the samples require CMake 3.22 or higher.
 # Shared Dependencies
 
 * [nvpro_core](https://github.com/nvpro-samples/nvpro_core): The primary framework that all samples depend on. Contains window management, UI, and various API helpers.
+
+* [nvpro_core2](https://github.com/nvpro-samples/nvpro_core2): The next-gen version of nvpro_core, modernized and cleaned up.
 
 # Table of Contents
 

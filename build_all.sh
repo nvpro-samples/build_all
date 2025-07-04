@@ -3,10 +3,10 @@
 # configure and build each downloaded sample
 
 # Set the base directory to the current directory
-base_dir=".."
+base_dir="./samples"
 
 # Define an array of directories to exclude
-excluded_dirs=("build_all" "downloaded_resources" "nvpro_core" "bin_x64" "vk_video_samples")
+excluded_dirs=("vk_video_samples" )
 
 # Store the current directory to return later
 current_dir=$(pwd)

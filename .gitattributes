@@ -1,0 +1,2 @@
+# .sh files use \n endings, even if this is checked out on Windows
+*.sh text eol=lf

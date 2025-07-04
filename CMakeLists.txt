@@ -1,12 +1,9 @@
-cmake_minimum_required(VERSION 3.5)
-Project(nvpro-samples)
+cmake_minimum_required(VERSION 3.22...3.31)
+project(nvpro-samples)
 
-# setting the base directory will also inform sub-cmake files
-# that they are included and not the first entry point
-SET(BASE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/..)
-SET(HAS_NVPRO_CORE ON)
-
-INCLUDE(${CMAKE_CURRENT_SOURCE_DIR}/../nvpro_core/cmake/setup.cmake)
+# This makes it so that nvpro_core2 samples output their executables inside
+# the build_all folder
+set(NVPRO_CORE2_OUTPUT_DIR ${CMAKE_CURRENT_LIST_DIR})
 
 # These samples don't build on Linux as of today
 # Use a syntax like  below to turn off a sample:
@@ -25,37 +22,52 @@ endif(UNIX)
 # it off by default. To build vk_video_samples, please see
 # https://github.com/nvpro-samples/vk_video_samples/blob/main/BUILD.md.
 set(BUILD_vk_video_samples OFF)
+# vk_minimal_latest uses a totally independent build system, and clashes with
+# nvpro_core.
+SET(BUILD_vk_minimal_latest OFF)
 
-macro(_addFolder _PATH)
-  FILE (GLOB samples "${_PATH}/*")
-  FOREACH( sample ${samples} )
-      if( IS_DIRECTORY ${sample} )
-        if( EXISTS ${sample}/CMakeLists.txt )
-          # extract the name from the path
-          string( REGEX REPLACE "^.*/([^/]*)$" "\\1" SAMPLE_NAME ${sample} )
-          if( (NOT(${SAMPLE_NAME} MATCHES "^__"))
-          AND (NOT(${SAMPLE_NAME} MATCHES "^build_all")) # Avoid infinite recursion if this build_all folder has a suffix
-          AND (NOT(${SAMPLE_NAME} STREQUAL "nvpro_core")) 
-          AND (NOT(${SAMPLE_NAME} STREQUAL "shared_sources")) # OBSOLETE folder : renamed as nvpro_core. But we still want to avoid it, in case someone left it by mistake
-          AND (NOT(${SAMPLE_NAME} STREQUAL "downloaded_resources")) 
-          AND (NOT(${SAMPLE_NAME} STREQUAL "vk_minimal_latest"))
-          AND (NOT(${SAMPLE_NAME} STREQUAL "vk_video_samples"))
-          AND (NOT (BUILD_${SAMPLE_NAME} STREQUAL "OFF")))
-              # build the option to include the project or not
-              set( "BUILD_${SAMPLE_NAME}" TRUE CACHE BOOL "Include the ${SAMPLE_NAME} sample" )
-              # add the project
-              if( BUILD_${SAMPLE_NAME})
-                add_subdirectory( ${_PATH}/${SAMPLE_NAME} ./${SAMPLE_NAME})
-              endif()
-            endif()
-        endif()
-      endif()
-  ENDFOREACH( sample ${samples} )
-endmacro(_addFolder)
-##############################
-#### projects ###
-##############################
-_addFolder("..")
-_addFolder("../shipped")
+# The first time we visit nvpro_core, every library must be enabled so that we
+# create targets for everything.
+foreach(_LIB nvaftermath nvapp nvgl nvgpu_monitor nvgui nvimageformats nvshaders_host nvslang nvutils nvvk nvvkglsl nvvkgltf)
+  option(NVPRO2_ENABLE_${_LIB} "Enable ${_LIB} as a target in nvpro_core2" ON)
+endforeach()
 
-add_subdirectory(../nvpro_core ${CMAKE_BINARY_DIR}/nvpro_core)
+# Load project_data.csv to see which samples support nvpro_core2
+file(STRINGS project_data.csv _PROJECT_DATA)
+# For each line in _PROJECT_DATA...
+while(_PROJECT_DATA)
+  list(POP_FRONT _PROJECT_DATA _SAMPLE_NAME)
+  # Is it *not* v1?
+  if(NOT (_SAMPLE_NAME MATCHES ",v1$"))
+    # Trim off the second part of the name, if it exists.
+    string(REPLACE "," ";" _SAMPLE_NAME ${_SAMPLE_NAME})
+    list(GET _SAMPLE_NAME 0 _SAMPLE_NAME)
+    # Only build the sample if it exists,
+    # and if building the sample hasn't explicitly been turned off
+    set(_SAMPLE_DIR samples/${_SAMPLE_NAME})
+    if((EXISTS ${CMAKE_CURRENT_LIST_DIR}/${_SAMPLE_DIR}/CMakeLists.txt)
+       AND (BUILD_${_SAMPLE_NAME} OR (NOT DEFINED BUILD_${_SAMPLE_NAME})))
+      message(STATUS "------------------------------------------------------------")
+      message(STATUS "Processing project: ${_SAMPLE_NAME}")
+      # set the option to include the project or not
+      set("BUILD_${_SAMPLE_NAME}" ON CACHE BOOL "Include the ${SAMPLE_NAME} sample")
+      add_subdirectory(${_SAMPLE_DIR})
+    endif()
+  endif()
+endwhile()
+
+if(NOT NVPRO_SAMPLES_NO_V1_SAMPLES)
+  # Call ExternalProject_Add to allow building the legacy samples in the same
+  # solution, although they'll all appear as a single target.
+  include(ExternalProject)
+  ExternalProject_Add(legacy
+    SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/legacy
+    BUILD_COMMAND ${CMAKE_COMMAND} --build . --parallel 7 --config $<CONFIG>
+    INSTALL_COMMAND ${CMAKE_COMMAND} --install . --config $<CONFIG>
+    # We set these just to save enough characters to fit under Windows'
+    # MAX_PATH limit on our CI systems.
+    PREFIX     ${CMAKE_BINARY_DIR}/v1
+    BINARY_DIR ${CMAKE_BINARY_DIR}/v1b
+    STAMP_DIR  ${CMAKE_BINARY_DIR}/v1s
+  )
+endif()

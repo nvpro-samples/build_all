@@ -3,10 +3,10 @@ setlocal enabledelayedexpansion
 
 REM configure and build each downloaded sample
 REM Set the base directory to the current directory
-set base_dir=..
+set base_dir=.\samples
 
 REM Define directories to exclude
-set excluded_dirs=build_all downloaded_resources nvpro_core bin_x64 vk_video_samples
+set excluded_dirs=vk_video_samples
 
 REM Store the current directory to return later
 set current_dir=%cd%
