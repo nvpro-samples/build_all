@@ -11,7 +11,7 @@ gl_render_vk_ddisplay,v1
 gl_ssao,v1
 gl_vk_meshlet_cadscene,v1
 gl_vk_raytrace_interop,v1
-gl_vk_simple_interop,v1
+gl_vk_simple_interop,
 gl_vrs,v1
 glsl_indexed_types_generator,v1
 nv_cluster_builder,v1
@@ -39,7 +39,7 @@ vk_minimal_latest,v1
 vk_offline,v1
 vk_optix_denoise,v1
 vk_order_independent_transparency,
-vk_partitioned_tlas,v1
+vk_partitioned_tlas,
 vk_raytracing_tutorial_KHR,v1
 vk_streamline,v1
 vk_tessellated_clusters,
