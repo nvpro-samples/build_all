@@ -53,6 +53,7 @@ Additionally, the samples require CMake 3.22 or higher.
 
 - [Vulkan Introduction Samples](#vulkan-introduction-samples)
   - [vk_mini_samples](#vk_mini_samples)
+  - [vk_slang_editor](#vk_slang_editor)
 - [Mega Geometry](#mega-geometry)
   - [vk_animated_clusters](#vk_animated_clusters)
   - [vk_lod_clusters](#vk_lod_clusters)
@@ -133,6 +134,27 @@ This repository contains numerous examples demonstrating various aspects of Vulk
 * Debug shader printf
 
 and many more.
+
+
+## [vk_slang_editor](https://github.com/nvpro-samples/vk_slang_editor)
+
+![A showcase of what vk_slang_editor can do. On the left, vk_slang_editor is open showing a code editor, camera controls, and a fractal flame shader. On the right are 12 different thumbnails of shaders you can run: a black hole, a sphere on a checkerboard, a cubic solver, Mandelbrot and Julia sets, path-traced boxes, a Mandelbox, a particle foam, and shaderballs with different materials, displacements, and wireframe modes.](doc/vk_slang_editor.jpg)
+
+Vk_slang_editor is a shader-driven livecoding tool using Vulkan and the
+[Slang](https://shader-slang.org/) shading language. It lets you write Slang
+shaders, compile them, and quickly see and interact with the result.
+
+Notably, it lets you write multi-pass pipelines in a
+single file, add arbitrary shader parameters, load meshes and textures; and much
+more -- while Slang's language features can make writing complex or
+large shaders easier.
+
+It also includes a collection of example shaders covering topics including
+compute shaders, autodifferentiation, particle systems, and more.
+
+* VK_EXT_extended_dynamic_state
+* VK_KHR_compute_shader_derivatives
+* VK_KHR_pipeline_executable_properties
 
 
 # Mega Geometry
@@ -374,7 +396,7 @@ Rendering object outlines and details from canvases render with rasterizer or ra
 
 Demonstrates a customizable cache-aware mipmap generation algorithm using compute shaders. Includes the **`nvpro_pyramid`** library, which can be used independently of this sample with no dependencies besides standard C++ and Vulkan. Supports non-power-of-2 textures while outperforming the conventional blit algorithm.
 
-**Tags**: mipmapping, image processing, compute shader, library, subgroups, procedural
+**Tags**: mipmapping, image processing, compute shaders, library, subgroups, procedural
 
 ## [vk_ddisplay](https://github.com/nvpro-samples/vk_ddisplay)
 
@@ -440,7 +462,7 @@ Provides a concrete example of how timeline semaphores and asynchronous compute-
 * Implicit surface rendering using the marching cubes algorithm
 * VK_KHR_timeline_semaphore
 
-**Tags**: synchronization, compute shader, procedural
+**Tags**: synchronization, compute shaders, procedural
 
 
 ## [vk_video_samples](https://github.com/nvpro-samples/vk_video_samples)

@@ -41,6 +41,7 @@ vk_optix_denoise,v1
 vk_order_independent_transparency,
 vk_partitioned_tlas,
 vk_raytracing_tutorial_KHR,v1
+vk_slang_editor,
 vk_streamline,v1
 vk_tessellated_clusters,
 vk_timeline_semaphore,v1
