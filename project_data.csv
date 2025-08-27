@@ -29,7 +29,7 @@ vk_denoise_nrd,v1
 vk_device_generated_cmds,v1
 vk_gaussian_splatting,v2
 vk_gltf_renderer,
-vk_idbuffer_rasterization,v1
+vk_idbuffer_rasterization,
 vk_inherited_viewport,v1
 vk_lod_clusters,
 vk_memory_decompression,v1
