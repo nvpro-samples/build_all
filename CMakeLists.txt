@@ -25,6 +25,8 @@ set(BUILD_vk_video_samples OFF)
 # vk_minimal_latest uses a totally independent build system, and clashes with
 # nvpro_core.
 SET(BUILD_vk_minimal_latest OFF)
+# vk_gaussian_splatting uses its own update process, and might be out-of-sync.
+set(BUILD_vk_gaussian_splatting OFF)
 
 # The first time we visit nvpro_core, every library must be enabled so that we
 # create targets for everything.
