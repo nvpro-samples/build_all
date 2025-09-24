@@ -533,6 +533,19 @@ using Interop.
 * VK_KHR_external_semaphore
 * VK_KHR_external_fence
 
+## [gl_vk_async_copy](https://github.com/nvpro-samples/gl_vk_async_copy)
+
+![screenshot-gl_vk_async_copy](doc/gl_vk_async_copy.png)
+
+Using Vulkan transfer queues to enable truly asynchronous texture- and buffer 
+transfers in OpenGL
+
+* GL_EXT_memory_object
+* GL_EXT_semaphore
+* GL_NV_timeline_semaphore
+* VK_KHR_external_memory
+* VK_KHR_external_semaphore
+
 ## [gl_vk_raytrace_interop](https://github.com/nvpro-samples/gl_vk_raytrace_interop)
 
 ![screenshot-gl_vk_raytrace_interop](doc/gl_vk_raytrace_interop.png)

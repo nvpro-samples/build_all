@@ -9,6 +9,7 @@ gl_occlusion_culling,v1
 gl_path_rendering_CMYK,v1
 gl_render_vk_ddisplay,v1
 gl_ssao,v1
+gl_vk_async_copy,
 gl_vk_meshlet_cadscene,v1
 gl_vk_raytrace_interop,v1
 gl_vk_simple_interop,
