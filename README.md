@@ -64,6 +64,7 @@ Additionally, the samples require CMake 3.22 or higher.
 - [Vulkan Ray Tracing and Path Tracing Samples](#vulkan-ray-tracing-and-path-tracing-samples)
   - [vk_ray_tracing_tutorial_KHR](#vk_ray_tracing_tutorial_khr)
   - [vk_mini_path_tracer](#vk_mini_path_tracer)
+  - [vk_denoise_dlssrr](#vk_denoise_dlssrr)
   - [vk_denoise_nrd](#vk_denoise_nrd)
   - [vk_optix_denoise](#vk_optix_denoise)
   - [vk_gltf_renderer](#vk_gltf_renderer)
@@ -85,6 +86,7 @@ Additionally, the samples require CMake 3.22 or higher.
   - [xr_multi_gpu](#xr_multi_gpu)
   - [glsl_indexed_types_generator](#glsl_indexed_types_generator)
 - [OpenGL / Vulkan Samples](#opengl--vulkan-samples)
+  - [gl_vk_async_copy](#gl_vk_async_copy)
   - [gl_vk_meshlet_cadscene](#gl_vk_meshlet_cadscene)
   - [gl_vk_simple_interop](#gl_vk_simple_interop)
   - [gl_vk_raytrace_interop](#gl_vk_raytrace_interop)
@@ -261,6 +263,15 @@ A beginner-friendly Vulkan path tracing tutorial in under 300 lines of C++. Inte
 * `VK_KHR_ray_tracing_pipeline`
 
 **Tags**: ray tracing, path tracing, ray queries, ray tracing pipelines, compute shaders, debug printf, BLAS, TLAS, OBJ, beginner
+
+
+## [vk_denoise_dlssrr](https://github.com/nvpro-samples/vk_denoise_dlssrr)
+![A screenshot of the vk_denoise_dlssrr sample](doc/vk_denoise_dlssrr.png)
+
+This example demonstrates DLSS-RR, "Deep Learning Super-Sampling Ray Reconstruction", in a simple path tracer rendering a glTF scene.
+DLSS-RR is a real time, deep learning powered denoiser and upscaler which removes image noise typically produced by Monte-Carlo based path tracers.
+
+**Tags**: ray tracing, path tracing, glTF, denoiser, DLSS, DLSS-RR, Vulkan
 
 
 ## [vk_denoise_nrd](https://github.com/nvpro-samples/vk_denoise_nrd)
