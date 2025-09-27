@@ -29,7 +29,7 @@ vk_ddisplay,v1
 vk_denoise_nrd,v1
 vk_denoise_dlssrr,v1
 vk_device_generated_cmds,v1
-vk_gaussian_splatting,v2
+vk_gaussian_splatting,
 vk_gltf_renderer,
 vk_idbuffer_rasterization,
 vk_inherited_viewport,v1
@@ -42,7 +42,7 @@ vk_offline,v1
 vk_optix_denoise,v1
 vk_order_independent_transparency,
 vk_partitioned_tlas,
-vk_raytracing_tutorial_KHR,v1
+vk_raytracing_tutorial_KHR,
 vk_slang_editor,
 vk_streamline,v1
 vk_tessellated_clusters,
