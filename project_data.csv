@@ -18,7 +18,7 @@ glsl_indexed_types_generator,v1
 nv_cluster_builder,v1
 nv_cluster_lod_builder,v1
 nvml_enterprise_gpu_check,v1
-nvtt_samples,v1
+nvtt_samples,
 optix_advanced_samples,v1
 shared_external,v1
 third_party_binaries,v1
