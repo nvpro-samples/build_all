@@ -58,6 +58,7 @@ while(_PROJECT_DATA)
   endif()
 endwhile()
 
+option(NVPRO_SAMPLES_NO_V1_SAMPLES "Don't build v1 samples at all. If this is set to OFF, v1 samples are configured and built using CMake's ExternalProject." OFF)
 if(NOT NVPRO_SAMPLES_NO_V1_SAMPLES)
   # Call ExternalProject_Add to allow building the legacy samples in the same
   # solution, although they'll all appear as a single target.

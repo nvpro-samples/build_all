@@ -26,7 +26,7 @@ vk_animated_clusters,
 vk_async_resources,v1
 vk_compute_mipmaps,v1
 vk_ddisplay,v1
-vk_denoise_nrd,v1
+vk_denoise_nrd,
 vk_denoise_dlssrr,
 vk_device_generated_cmds,v1
 vk_gaussian_splatting,
