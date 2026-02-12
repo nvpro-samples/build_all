@@ -24,15 +24,9 @@ for dir in "$base_dir"/*/; do
 
   echo "Processing Directory: $dir_name"
 
-  # Change into the directory
-  cd "../$dir_name" || { echo "Failed to enter ../$dir_name"; exit 1; }
-
   # configure into build subdir
-  cmake -S . -B build
+  cmake -S $dir -B $dir/build
 
   # compile
-  cmake --build build --config Release
-
-  # Move back to the original directory
-  cd "$current_dir" || { echo "Failed to return to $current_dir"; exit 1; }
+  cmake --build $dir/build --config Release
 done
