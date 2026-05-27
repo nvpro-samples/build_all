@@ -36,7 +36,7 @@ All samples must be built for a 64-bit architecture. All samples support Windows
 The samples attempt to pull in third-party dependencies automatically. But there are a few system libraries they depend on. CMake may not pick up all dependencies during the setup phase and compilation will bail out due to missing headers. The following line installs many of the potentially missing system library headers and libraries:
 
 ```bash
-sudo apt-get install libx11-dev libxcb1-dev libxcb-keysyms1-dev libxcursor-dev libxi-dev libxinerama-dev libxrandr-dev libxxf86vm-dev libtbb-dev
+sudo apt-get install libx11-dev libxcb1-dev libxcb-keysyms1-dev libxcursor-dev libxi-dev libxinerama-dev libxrandr-dev libxxf86vm-dev libtbb-dev libxkbcommon-dev
 ```
 
 Installing the latest Vulkan SDK is recommended. Please follow the instructions on https://vulkan.lunarg.com/doc/sdk/latest/linux/getting_started.html under "Download the SDK" and "Install the SDK".
