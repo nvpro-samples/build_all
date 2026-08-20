@@ -34,7 +34,7 @@ vk_gltf_renderer,
 vk_idbuffer_rasterization,
 vk_inherited_viewport,v1
 vk_lod_clusters,
-vk_memory_decompression,v1
+vk_memory_decompression,
 vk_mini_path_tracer,v1
 vk_mini_samples,
 vk_minimal_latest,v1
